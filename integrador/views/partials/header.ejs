@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-5 col-md-2">
                 <a href="/" class="main-header_home-link">
-                    <img src="/images/logo-mercado-liebre.svg">
+                    <img src="/grupo3-tpintegrador/integrador/public/images/logo-mercado-liebre.svg" alt="Logo Mercado Liebre">
                 </a>
             </div>
 
@@ -29,17 +29,16 @@
         <nav class="main-navbar">
             <ul class="left-navbar">
                 <li><a href="/products">Todos los productos</a></li>
-                <% if (locals.isLoggedIn) { %>
+                <% if (isLoggedIn) { %>
                     <li><a href="/products/add">Cargar productos</a></li>
                 <% } %>
             </ul>
 
             <ul class="right-navbar">
-                <% if (locals.isLoggedIn) { %>
+                <% if (isLoggedIn) { %>
                     <li><a href="/profile">
-                            <%= locals.user.name %> <i class="fas fa-user"></i>
-                        </a>
-                    </li>
+                        <%= user.name %> <i class="fas fa-user"></i>
+                    </a></li>
                     <li>
                         <form action="/logout" method="post">
                             <button class="logout" type="submit">
@@ -48,12 +47,8 @@
                         </form>
                     </li>
                 <% } else { %>
-                    <li>
-                        <a href="/register">Creá tu cuenta <i class="far fa-address-card"></i></a>
-                    </li>
-                    <li>
-                        <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
+                    <li><a href="/register">Creá tu cuenta <i class="far fa-address-card"></i></a></li>
+                    <li><a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
                 <% } %>
             </ul>
         </nav>
