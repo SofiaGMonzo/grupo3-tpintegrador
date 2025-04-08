@@ -1,18 +1,18 @@
 const mainController = {
-    index: (req, res) => {
+    index: function(req, res) {
         res.render('index');
     },
-    searchResults: (req, res) => {
+    searchResults: function(req, res) {
         // Search logic here
         res.render('search-results');
     },
-    products: (req, res) => {
+    products: function(req, res) {
         res.render('products');
     },
-    productDetail: (req, res) => {
+    productDetail: function(req, res) {
         res.render('product');
     },
-    productAdd: (req, res) => {
+    productAdd: function(req, res) {
         res.render('product-add');
     }
 };

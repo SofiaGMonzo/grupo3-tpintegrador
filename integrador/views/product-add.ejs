@@ -3,21 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
-	<title>Mercado Libre Argentina</title>
+	<link rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
+	<title>Agregar producto - Mercado Libre</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
 	<script src="/js/forms.js"></script>
 </head>
 <body>
-	<%- include('partials/headerLogueado', {user}) %>
+	<%- include('partials/headerLogueado', { user }) %>
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<main class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title">Agregar producto</h2>
 			</div>
 			<div class="col-12 col-md-6 offset-md-3">
 				<form action="/products/add" method="GET" class="product-form">
@@ -36,10 +35,11 @@
 						<textarea id="description" name="description" class="form-control" rows="4" required></textarea>
 					</div>
 					
-					<button type="submit" class="btn btn-primary">Agregar Producto</button>
+					<button type="submit" class="btn btn-primary">Agregar producto</button>
 				</form>
 			</div>
-
+		</div>
+	</main>
 
 	<%- include('partials/footer') %>
 </body>
