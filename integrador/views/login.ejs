@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Include Head -->
 
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> Mercado Liebre Argentina</title>
+	<link width="" rel="shortcut icon" href="../public/images/logo-mercado-liebre.jpg" />
+	<title> Mercado Libre Argentina</title>
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="../public/stylesheets/style.css">
-	<script src="/js/forms.js"></script>
+	
 </head>
 
 <body>
 	<!-- Header -->
 	<%- include('./partials/header') %>
 	<!-- /Header -->
-	<main class="container products-wrapper">
+	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 			<div class="col-12 col-md-6 offset-md-3">
-				<form action="/login" method="POST" class="login-form">
-					<% if (typeof error !== 'undefined') { %>
-						<div class="alert alert-danger"><%= error %></div>
-					<% } %>
-					<% if (typeof success !== 'undefined') { %>
-						<div class="alert alert-success"><%= success %></div>
-					<% } %>
-
+				<form action="/users/profile" method="GET" class="login-form"> <!-- Micha lo hizo asi pero no se si esta bien pq lo hciimos distinto -->
+					<div class="form-group">
+						<label for="name">Usuario:</label>
+						<input type="text" id="name" name="name" class="form-control" required>
+					</div>
 					<div class="form-group">
 						<label for="email">Email:</label>
 						<input type="email" id="email" name="email" class="form-control" required>
 					</div>
-
 					<div class="form-group">
 						<label for="password">Contraseña:</label>
 						<input type="password" id="password" name="password" class="form-control" required>
@@ -47,12 +45,11 @@
 						<input type="checkbox" id="remember" name="remember" class="form-check-input">
 						<label for="remember" class="form-check-label">Recordarme</label>
 					</div>
-
 					<button type="submit" class="btn btn-primary">Ingresar</button>
 				</form>
 			</div>
 		</div>
-	</main>
+	</div>
 	<!-- /Footer -->
 	<%- include('partials/footer') %>
 	<!-- /Footer -->
