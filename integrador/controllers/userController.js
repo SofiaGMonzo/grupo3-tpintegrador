@@ -1,25 +1,20 @@
-const db = require('../db/baseDatos');
 
 const userController = {
-  login: function(req, res){
-    res.render('login'); 
-  },
-  
   loginProcess: function (req, res) {
-    console.log(/*completar */); 
-    res.send('Login procesado');
-  },
-  register: (req, res) => {
-    res.render('register');
+    const userId = req.params.id;
+    console.log('Login process for user ID:', userId);
+    res.send(`Login procesado para el usuario con ID: ${userId}`);
   },
 
-  registerProcess: function(req, res)  {
-    console.log('Register data:', /*completar */);
-    res.send('Registro procesado (GET)');
+  registerProcess: function (req, res) {
+    const userName = req.params.name;
+    console.log('Register data:', userName);
+    res.send(`Registro procesado para el usuario: ${userName}`);
   },
 
   profile: function (req, res) {
-    /*completar */
+    const userId = req.params.id;
+    res.send(`Perfil del usuario con ID: ${userId}`);
   }
 };
 
