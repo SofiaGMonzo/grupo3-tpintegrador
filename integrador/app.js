@@ -35,7 +35,7 @@ app.use('/register', registerRouter);
 app.use('/products', productsRouter);
 app.use('/products-add', productsAddRouter);
 app.use('/profile', profileRouter);
-app.use('/search-results', searchResultsRouter); // ruta para el formulario de búsqueda
+app.use('/search-results', searchResultsRouter); 
 
 // Catch 404 y manejador de errores
 app.use(function (req, res, next) {
