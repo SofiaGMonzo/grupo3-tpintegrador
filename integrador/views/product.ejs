@@ -1,30 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
  <!-- hay que revisar que se hice aca  -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
-	<title>Producto - Mercado Libre</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="../public/stylesheets/style.css">
-	<script src="/js/forms.js"></script>
-</head>
-<body>
-	<!-- Header -->
-	<% if (locals.isLoggedIn) { %>
-		<%- include('partials/headerLogueado', { user, isLoggedIn }) %>
-	<% } else { %>
-		<%- include('./partials/header') %>
-	<% } %>
+ <%- include('./partials/head') %>
+<%- include('./partials/header') %>
 	<!-- /Header -->
 	<!-- product detail BASE DE MAQUETA-->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title">Nombre del producto</h2> 
 			<p class="product-detail-description">
-				<a href="product-add.ejs">Editar</a>
+				<a href="/product-add">Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
@@ -42,7 +27,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
+								<strong> <a href="/profile">Nombre usuario: </a> </strong>
 								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
 							</div>
 						</article>
@@ -50,7 +35,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
+									<strong> <a href="/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
 							</div>
 						</article>
@@ -58,7 +43,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
+									<strong> <a href="/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									</p>
 							</div>
@@ -67,7 +52,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
+									<strong> <a href="/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
 							</div>
 						</article>
@@ -75,7 +60,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
+									<strong> <a href="/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
 							</div>
@@ -95,7 +80,7 @@
 
 	
 	<!-- /Footer -->
-	<%- include('partials/footer') %>
+	<%- include('./partials/footer') %>
 	<!-- /Footer -->
 </body>
 </html>

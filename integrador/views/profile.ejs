@@ -1,39 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<!-- Include Head -->
- 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
-	
-	<title> Mercado Libre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/style.css">
-    
-</head>
-<body>
-    <!-- /Header logueado -->
-    <%- include('partials/headerLogueado') %>
-    <!-- /Header logueado -->
-<!-- Datos del usuario -->
+<%- include('./partials/head') %>
+<%- include('./partials/headerLogueado') %>
+   
 <section class="info-usuario container products-wrapper">
     <div class="row">
         <div class="img-container offset-3 col-2">
-            <img src="images/users/default-image.png" alt="foto de perfil" class="foto-perfil">
+            <img src="<%= baseDatos.usuario[0].imagenPerfil %>"  alt="foto de perfil" class="foto-perfil">
         </div>
         <div class="data-container col-6">
             <div class="d-flex align-items-center ">
-                <h1 class="main-title">Nombre del usuario 
-                    <a href="./profile">
+                <h1 class="main-title"><%= baseDatos.usuario[0].nombre %> 
+                    <a href="/profile">
                         <i class="fas fa-cog"></i>
                     </a>
                 </h1>
-                <a class="btn mt-3 ml-4" href="">SEGUIR</a>
+                <a class="btn mt-3 ml-4" href="/">SEGUIR</a>
             </div>
             <div>
                 <ul class="">
@@ -58,7 +38,7 @@
             <section class="product-box">
                 <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/auriculares-casco.png" alt="cafetera moulinex">
+                        <img src= "<%= baseDatos.productos[0].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -70,9 +50,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/auriculares-inalambricos.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[1].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -85,9 +65,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/camara-fotos.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[2].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -100,9 +80,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/celular.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[3].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -115,9 +95,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/computadora.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[4].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -130,9 +110,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/monitor.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[5].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -145,9 +125,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/mouse.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[6].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -160,9 +140,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/tablet.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[7].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -175,9 +155,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/teclado.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[8].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -190,9 +170,9 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="./product">
+                <a href="/product">
                     <figure class="product-box_image">
-                        <img src="../public/images/products/virtual-reality.png" alt="cafetera moulinex">
+                        <img src="<%= baseDatos.productos[9].imagen %>" alt="cafetera moulinex">
                     </figure>
                     <article class="product-box_data">
                         <h2>Nombre del producto</h2>
@@ -207,7 +187,5 @@
 </div>
 <!-- /Mis productos -->
     <!-- /Footer -->
-    <%- include('partials/footer') %>
+    <%- include('./partials/footer') %>
 	<!-- /Footer -->
-</body>	
- </html>

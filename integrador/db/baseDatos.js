@@ -5,7 +5,7 @@ const baseDatos = {
         contrasenia: "123456789",
         fechaNacimiento: "17/10/2005",
         domicilio: "Buenos Aires, Pilar",
-        imagenPerfil: "/images/users/products/default-image.png"
+        imagenPerfil: "/images/users/fotoPerfil.jpg"
     },
     productos: [
         {
@@ -190,7 +190,7 @@ const baseDatos = {
           },
           {
             id: 10,
-            nombre: "Smart TV Samsung 50\"",
+            nombre: "Smart TV Samsung 50",
             descripcion: "4K UHD, Tizen OS, conectividad WiFi y HDMI.",
             precio: 240000,
             categoria: "TV",
