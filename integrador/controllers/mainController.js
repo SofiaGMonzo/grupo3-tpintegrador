@@ -1,3 +1,7 @@
+const express = require('express');
+const router = express.Router();
+const db = require('../db/baseDatos');
+
 const mainController = {
     index: function(req, res) {
         res.render('index');

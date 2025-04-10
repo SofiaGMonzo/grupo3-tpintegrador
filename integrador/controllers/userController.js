@@ -1,4 +1,8 @@
-const data = require('../db/baseDatos');
+const express = require('express');
+const router = express.Router();
+const db = require('../db/baseDatos');
+
+
 const userController = {
   /*loginProcess: function (req, res) {
     const userId = req.params.id;
