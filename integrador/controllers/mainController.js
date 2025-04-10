@@ -20,7 +20,7 @@ const mainController = {
         res.render('product-add');
     },
     setLocals: function (req, res, next) {
-        res.locals.isLoggedIn = false; // o algo dinámico
+        res.locals.isLoggedIn = false; 
         next();
       }
 };

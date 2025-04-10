@@ -23,11 +23,6 @@ const productsRouter = require('./routes/products');
 //const profileRouter = require('./routes/profile');
 const searchResultsRouter = require('./routes/search-results');
 
-
-// View engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
 // Middlewares
 app.use(logger('dev'));
 app.use(express.json());
