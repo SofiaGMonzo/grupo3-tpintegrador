@@ -3,7 +3,7 @@ const mainController = {
         res.render('index');
     },
     searchResults: function(req, res) {
-        // Search logic here
+        // Search logic aca
         res.render('search-results');
     },
     products: function(req, res) {
@@ -14,7 +14,11 @@ const mainController = {
     },
     productAdd: function(req, res) {
         res.render('product-add');
-    }
+    },
+    setLocals: function (req, res, next) {
+        res.locals.isLoggedIn = false; // o algo dinámico
+        next();
+      }
 };
 
 module.exports = mainController;
