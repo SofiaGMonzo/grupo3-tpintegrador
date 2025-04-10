@@ -1,14 +1,16 @@
-
-const baseDatos = require('../db/baseDatos');
+const express = require('express');
+const router = express.Router();
 
 const productsController = {
     productAdd: function (req, res) {
-        return res.render ('product-add', {baseDatos})
-    },
-    
+        return res.render ('product-add')
+    },   
     product: function (req, res) {
-        return res.render ('product', {baseDatos})
-}
+        return res.render ('product')
+},
+    productDetail: function (req, res){
+        return res.render ('productDetail')
+    }
 }
 
 module.exports = productsController;

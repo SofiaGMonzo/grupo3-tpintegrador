@@ -528,3 +528,10 @@ textarea.form-input {
     margin: auto;
   }
 }
+
+
+
+// 
+.product-box_image{
+  width: 33%;
+}

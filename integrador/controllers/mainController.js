@@ -1,12 +1,13 @@
 
-const baseDatos = require('../db/baseDatos');
+const express = require('express');
+const router = express.Router();
 
 const mainController = {
     index: function(req, res) {
         res.render('index');
     },
     searchResults: function (req, res) {
-        return res.render('search-results', {baseDatos})
+        return res.render('search-results')
       }
 };
 
