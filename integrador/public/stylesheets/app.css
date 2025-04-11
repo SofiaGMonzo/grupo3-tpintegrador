@@ -2,9 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
 
+
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: #7568ab;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -296,6 +297,9 @@ hr {
   padding: 15px 0;
 }
 
+.profile-div{
+  display: flex;
+}
 
 /*====== Product Detail ======*/
 .product-detail {

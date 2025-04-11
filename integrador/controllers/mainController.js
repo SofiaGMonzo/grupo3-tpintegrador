@@ -8,16 +8,7 @@ const mainController = {
     },
     searchResults: function (req, res) {
         return res.render('search-results')
-      },
-    /*searchResults: function (req, res) {
-        let search = req.params.search;
-    
-        let productos = baseDatos.productos;
-    
-        let resultados = COMPLETAR 
-    
-        res.render('search-results', { search, resultados });
-      }*/
+      }
 };
 
 module.exports = mainController;
