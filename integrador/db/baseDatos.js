@@ -8,207 +8,208 @@ const baseDatos = {
         imagenPerfil: "/images/users/fotoPerfil.jpg"
     },
     productos: [
-        {
-            id: 1,
-            nombre: "Auriculares con cable",
-            descripcion: "Auriculares estéreo con micrófono, ideales para videollamadas.",
-            precio: 3500,
-            categoria: "Audio",
-            imagen: "/images/products/auriculares-casco.png",
-            comentarios: [
-              {
-                nombreUsuario: "Juan Pérez",
-                texto: "Muy cómodos, excelente calidad de sonido.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Elena Suárez",
-                texto: "Los uso para trabajar y son geniales.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
+      {
+        id: 1,
+        nombre: "Remera Alphaville - Forever Young",
+        descripcion: "Diseño clásico con el logo de 'Forever Young', ideal para fans de los 80s.",
+        precio: 8500,
+        categoria: "Ropa",
+        imagen: "/images/products/1.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Juan Pérez",
+            texto: "Excelente calidad de algodón, me encantó el diseño.",
+            imagenPerfil: "/images/users/images.jpeg"
           },
           {
-            id: 2,
-            nombre: "Auriculares inalámbricos",
-            descripcion: "Bluetooth 5.0, cancelación de ruido y estuche cargador.",
-            precio: 7200,
-            categoria: "Audio",
-            imagen: "/images/products/auriculares-inalambricos.png",
-            comentarios: [
-              {
-                nombreUsuario: "Lucía Gómez",
-                texto: "La batería dura muchísimo.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Carlos Martín",
-                texto: "La conexión es muy estable.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 3,
-            nombre: "Cámara digital",
-            descripcion: "Sensor de alta resolución, ideal para capturar momentos especiales.",
-            precio: 28000,
-            categoria: "Fotografía",
-            imagen: "/images/products/camara-fotos.png",
-            comentarios: [
-              {
-                nombreUsuario: "Valentina Ruiz",
-                texto: "Saca fotos espectaculares.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Tomás Ledesma",
-                texto: "Compacta y liviana, ideal para viajes.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 4,
-            nombre: "Computadora de escritorio",
-            descripcion: "Intel i5, 8GB RAM, SSD 240GB.",
-            precio: 180000,
-            categoria: "Informática",
-            imagen: "/images/products/computadora.png",
-            comentarios: [
-              {
-                nombreUsuario: "Nicolás Torres",
-                texto: "Va rapidísimo, arranca en segundos.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Ariel Gutierrez",
-                texto: "Muy buena para oficina y juegos casuales.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 5,
-            nombre: "Monitor LED 24”",
-            descripcion: "Resolución Full HD, ideal para trabajo o gaming.",
-            precio: 50000,
-            categoria: "Informática",
-            imagen: "/images/products/monitor.png",
-            comentarios: [
-              {
-                nombreUsuario: "Leandro Ortega",
-                texto: "Cumple con todo lo que promete.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Florencia Álvarez",
-                texto: "Se ve muy bien, y no cansa la vista.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 6,
-            nombre: "Mouse inalámbrico",
-            descripcion: "Diseño ergonómico, con batería recargable.",
-            precio: 3000,
-            categoria: "Accesorios",
-            imagen: "/images/products/mouse.png",
-            comentarios: [
-              {
-                nombreUsuario: "Brenda Acosta",
-                texto: "Liviano y cómodo, me encanta.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "David Salas",
-                texto: "Funciona perfecto con mi notebook.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 7,
-            nombre: "Tablet 10”",
-            descripcion: "Pantalla HD, 4GB RAM, 64GB de almacenamiento.",
-            precio: 62000,
-            categoria: "Tablets",
-            imagen: "/images/products/tablet.png",
-            comentarios: [
-              {
-                nombreUsuario: "Julieta Fernández",
-                texto: "Ideal para leer y estudiar.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Gustavo Rey",
-                texto: "Muy fluida para ver series o navegar.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 8,
-            nombre: "Teclado mecánico RGB",
-            descripcion: "Retroiluminado, switches blue, conexión USB.",
-            precio: 12000,
-            categoria: "Accesorios",
-            imagen: "/images/products/teclado.png",
-            comentarios: [
-              {
-                nombreUsuario: "Pedro López",
-                texto: "Hace ruido pero se siente genial para escribir.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Rocío Varela",
-                texto: "Muy buena calidad y diseño atractivo.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 9,
-            nombre: "Set de Realidad Virtual",
-            descripcion: "Lentes VR con controladores y sensor de movimiento.",
-            precio: 135000,
-            categoria: "Gaming",
-            imagen: "/images/products/virtual-reality.png",
-            comentarios: [
-              {
-                nombreUsuario: "Sofía Méndez",
-                texto: "Una experiencia increíble.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Lucas Romero",
-                texto: "¡Inmersión total, muy recomendado!",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
-          },
-          {
-            id: 10,
-            nombre: "Smart TV Samsung 50",
-            descripcion: "4K UHD, Tizen OS, conectividad WiFi y HDMI.",
-            precio: 240000,
-            categoria: "TV",
-            imagen: "/images/products/img-tv-samsung-smart.png",
-            comentarios: [
-              {
-                nombreUsuario: "Martín Herrera",
-                texto: "Perfecto para ver pelis en familia.",
-                imagenPerfil: "/images/products/default-image.png"
-              },
-              {
-                nombreUsuario: "Agustina Ríos",
-                texto: "Muy buena calidad de imagen y sonido.",
-                imagenPerfil: "/images/products/default-image.png"
-              }
-            ]
+            nombreUsuario: "Elena Suárez",
+            texto: "La estampa se mantiene perfecta después de varios lavados.",
+            imagenPerfil: "/images/users/2.jpeg"
           }
         ]
+      },
+      {
+        id: 2,
+        nombre: "Remera Alphaville - Big in Japan",
+        descripcion: "Remera negra con gráfico vintage inspirado en el hit 'Big in Japan'.",
+        precio: 8900,
+        categoria: "Ropa",
+        imagen: "/images/products/2.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Lucía Gómez",
+            texto: "Súper cómoda y con muy buen calce.",
+            imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Carlos Martín",
+            texto: "Ideal para regalar, mi novia la amó.",
+            imagenPerfil: "/images/users/images.jpeg"
+          }
+        ]
+      },
+      {
+        id: 3,
+        nombre: "Remera Alphaville - The Jet Set",
+        descripcion: "Estilo moderno con colores vibrantes y tipografía ochentosa.",
+        precio: 9100,
+        categoria: "Ropa",
+        imagen: "/images/products/3.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Valentina Ruiz",
+            texto: "Me encanta cómo se siente la tela, súper suave.",
+            imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Tomás Ledesma",
+            texto: "La uso para salir, todos me preguntan dónde la compré.",
+            imagenPerfil: "/images/users/images.jpeg"
+          }
+        ]
+      },
+      {
+        id: 4,
+        nombre: "Remera Alphaville - Summer in Berlin",
+        descripcion: "Inspirada en los paisajes urbanos de Berlín, ideal para el verano.",
+        precio: 8700,
+        categoria: "Ropa",
+        imagen: "/images/products/4.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Nicolás Torres",
+            texto: "Liviana y fresca, ideal para días calurosos.",
+            imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Ariel Gutierrez",
+            texto: "Hermoso diseño y colores brillantes.",
+            imagenPerfil: "/images/users/images.jpeg"
+          }
+        ]
+      },
+      {
+        id: 5,
+        nombre: "Remera Alphaville - Dance with Me",
+        descripcion: "Remera blanca con tipografía retro y detalles en rojo.",
+        precio: 8800,
+        categoria: "Ropa",
+        imagen: "/images/products/5.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Leandro Ortega",
+            texto: "Combinable con todo. La uso un montón.",
+            imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Florencia Álvarez",
+            texto: "Me encanta, tiene un estilo súper único.",
+            imagenPerfil: "/images/users/2.jpeg"
+          }
+        ]
+      },
+      {
+        id: 6,
+        nombre: "Remera Alphaville - Red Rose",
+        descripcion: "Diseño minimalista con una rosa roja y letras discretas.",
+        precio: 9200,
+        categoria: "Ropa",
+        imagen: "/images/products/6.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Brenda Acosta",
+            texto: "La imagen de la rosa es hermosa, delicada pero llamativa.",
+            imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "David Salas",
+            texto: "Queda re bien con jeans o pantalones claros.",
+            imagenPerfil: "/images/users/images.jpeg"
+          }
+        ]
+      },
+      {
+        id: 7,
+        nombre: "Remera Alphaville - Sounds Like a Melody",
+        descripcion: "Remera gris con frase del tema y notas musicales sutiles.",
+        precio: 9400,
+        categoria: "Ropa",
+        imagen: "/images/products/7.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Julieta Fernández",
+            texto: "Ideal para los que amamos la música de los 80.",
+            imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Gustavo Rey",
+            texto: "Muy buena calidad y no se encoge.",
+            imagenPerfil: "/images/users/images.jpeg"
+          }
+        ]
+      },
+      {
+        id: 8,
+        nombre: "Remera Alphaville - Afternoons in Utopia",
+        descripcion: "Estilo oversize con ilustración inspirada en el álbum.",
+        precio: 9700,
+        categoria: "Ropa",
+        imagen: "/images/products/8.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Pedro López",
+            texto: "Me encanta la onda que tiene, súper original.",
+            imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Rocío Varela",
+            texto: "Es cómoda y la tela es gruesita, muy buena.",
+            imagenPerfil: "/images/users/2.jpeg"
+          }
+        ]
+      },
+      {
+        id: 9,
+        nombre: "Remera Alphaville - Universal Daddy",
+        descripcion: "Diseño negro con tipografía blanca y pequeños gráficos.",
+        precio: 8600,
+        categoria: "Ropa",
+        imagen: "/images/products/9.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Sofía Méndez",
+            texto: "¡Amo Alphaville! Esta remera es un must.",
+            imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Lucas Romero",
+            texto: "Ya me compré otra del mismo estilo, 10/10.",
+            imagenPerfil: "/images/users/images.jpeg"
+          }
+        ]
+      },
+      {
+        id: 10,
+        nombre: "Remera Alphaville - Heartbreak City",
+        descripcion: "Inspirada en los visuales urbanos de la canción, full estilo retro.",
+        precio: 9300,
+        categoria: "Ropa",
+        imagen: "/images/products/10.webp",
+        comentarios: [
+          {
+            nombreUsuario: "Martín Herrera",
+            texto: "¡Muy buena! Se nota que es producto oficial.",
+            imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Agustina Ríos",
+            texto: "Hermosa y muy original, la volvería a comprar.",
+            imagenPerfil: "/images/users/2.jpeg"
+          }
+        ]
+      }
+    ]
+    
 }
 
 module.exports = baseDatos;
