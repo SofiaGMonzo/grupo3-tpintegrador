@@ -534,11 +534,20 @@ textarea.form-input {
     margin: 20px;
     font-size: small;
 }
+.col-12.col-md-6.offset-md-3 {
+  background-color: #44444429;
+  display: flex;
+  border-radius: 10px;
+  margin: auto;
+  flex-direction: column;
+  padding: 25px;
+}
 .botonreseteo {
   flex-direction: row;
   display: flex;
   justify-content: center;
   gap: 10px;
+  
 }
 label {
   font-size: 14px;
@@ -562,9 +571,11 @@ form.login-form {
   padding: 38px;
 }
 .form-group.form-check {
-  display: flex;
+  display: flex
+;
   align-items: center;
   justify-content: flex-start;
+  margin: 16px;
 }
 .form-group {
   padding: 4px;
@@ -577,8 +588,7 @@ form.login-form {
 }
 .products-title {
   font-size: 21px;
-  font-weight: 600;
-  color: #32027a;
+  color:  #220252;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -589,7 +599,38 @@ a.main-header_credit-link {
 a.Acolor {
   color: #c9bebe;
 }
+.Login2 {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.form-control-r {
+  width: 50%;
+  height: 24px;
+}
+.LOgin {
+  width: 56%;
+  display: flex;
+  align-content: flex-end;
+  
+}
+.form-group-r {
+  width: 93%;
+    height: 24px;
+}
+.form-group-r {
+  font-size: medium;
+  color: black;
+  margin: 6px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {
