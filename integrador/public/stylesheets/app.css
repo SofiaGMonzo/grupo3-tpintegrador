@@ -13,7 +13,6 @@
   --light-gray: #ebebeb;
   --green: #39b54a;
   --base-font-family: 'Lora', serif;/*lo cambie yo*/
-  /*falta usar la otra font */
 }
 
 
@@ -34,9 +33,10 @@ body {
   font-weight: 300;
   background-color: var(--light-gray);
 }
-/*poner en titulos la otra font
+
 h1, .main-title, .products-title, .product-detail-title {
-} */
+font-family: 'Bebas Neue', sans-serif;
+} 
 
 ul,
 ol {
