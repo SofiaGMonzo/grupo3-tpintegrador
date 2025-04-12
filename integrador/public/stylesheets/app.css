@@ -44,6 +44,7 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  text-decoration-color: white; 
 }
 
 figure {
@@ -69,7 +70,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: #003889;
 }
 
 .main-header_home-link,
@@ -149,17 +150,18 @@ hr {
   display: block;
   padding: 5px 0;
   border-bottom: solid 1px var(--gray);
+  text-decoration-color: white;
 }
 
 
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(../images/users/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100px;
+  height: 100px; 
 }
 
 
@@ -472,14 +474,71 @@ textarea.form-input {
   font-size: 25px;
   margin-bottom: 10px;
 }
-
-.btn{
-  background-color: #1259c3;
-  padding: 10px 20px;
-  border-radius: 4px;
-  color: #fff;
+.botonregistrame { 
+  background-color: #000d3dcc;
+    color: white;
+    border: 0px;
+    padding: 15px;
+    border-radius: 5px;
+    align-self: center;
+    margin: 20px;
+    font-size: small;
 }
-
+.botonreseteo {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+label {
+  font-size: 14px;
+  font-weight: 450;
+  padding: 6px;
+}
+form.register-form {
+  background-color: #44444429;
+  display: flex;
+  border-radius: 10px;
+  margin: auto;
+  flex-direction: column;
+  padding: 38px;
+}
+form.login-form {
+  background-color: #44444429;
+  display: flex;
+  border-radius: 10px;
+  margin: auto;
+  flex-direction: column;
+  padding: 38px;
+}
+.form-group.form-check {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.form-group {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-content: space-between;
+  margin: 4px;
+  justify-content: space-between;
+}
+.products-title {
+  font-size: 21px;
+  font-weight: 600;
+  color: #32027a;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+a.main-header_credit-link {
+  color: #c9bebe;
+} 
+a.Acolor {
+  color: #c9bebe;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
