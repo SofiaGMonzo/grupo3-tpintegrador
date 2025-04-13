@@ -16,6 +16,7 @@
 }
 
 
+
 /*====== Basics ======*/
 * {
   box-sizing: border-box;
@@ -47,9 +48,9 @@ ol {
 
 a {
   display: inline-block;
-  text-decoration: none;
   color: inherit;
   text-decoration-color: white; 
+  text-decoration: underline;
 }
 
 figure {
@@ -218,6 +219,7 @@ hr {
 
 .product-box a {
   display: block;
+  text-decoration: none;
 }
 
 .product-box_image {
@@ -413,6 +415,7 @@ hr {
   border-radius: 8px;
   border: none;
   margin-bottom: 15px;
+  text-decoration: underline;
 }
 
 
@@ -515,6 +518,7 @@ textarea.form-input {
     align-self: center;
     margin: 20px;
     font-size: small;
+    text-decoration: underline;
 }
 .col-12.col-md-6.offset-md-3 {
   background-color: #44444429;
@@ -577,6 +581,7 @@ form.login-form {
 }
 a.main-header_credit-link {
   color: #c9bebe;
+  text-decoration: none;
 } 
 a.Acolor {
   color: #c9bebe;
@@ -651,10 +656,12 @@ a.Acolor {
 
   .left-navbar li {
     margin-right: 15px;
+    text-decoration: underline;
   }
 
   .right-navbar li {
     margin-left: 15px;
+    text-decoration: underline;
   }
 
   .main-footer {
