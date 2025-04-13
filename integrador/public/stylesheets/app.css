@@ -182,28 +182,9 @@ hr {
   display: flex
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn-btn-primary{ 
+  margin-top: 25px;
+}
 
 /*====== Banner ======*/
 .banner {
@@ -434,6 +415,7 @@ hr {
   margin-bottom: 15px;
 }
 
+
 .action-button {
   border: none;
   border-radius: 8px;
@@ -653,6 +635,7 @@ a.Acolor {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    color: #c9bebe;
   }
 
   .left-navbar a,
