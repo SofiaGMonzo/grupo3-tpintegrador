@@ -44,3 +44,5 @@ VALUES
 (DEFAULT, 1, '/images/products/8.webp', 'Remera Alphaville - Afternoons in Utopia', 'Estilo oversize con ilustración inspirada en el álbum.'),
 (DEFAULT, 1, '/images/products/9.webp', 'Remera Alphaville - Universal Daddy', 'Diseño negro con tipografía blanca y pequeños gráficos.'),
 (DEFAULT, 1, '/images/products/10.webp', 'Remera Alphaville - Heartbreak City', 'Inspirada en los visuales urbanos de la canción, full estilo retro.');
+
+-- CREATE TABLE comentarios ( id INT AUTO_INCREMENT PRIMARY KEY, producto_id INT, usuario_id INT, texto TEXT,createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP, FOREIGN KEY (producto_id) REFERENCES productos(id),FOREIGN KEY (usuario_id) REFERENCES usuarios(id)); -->
