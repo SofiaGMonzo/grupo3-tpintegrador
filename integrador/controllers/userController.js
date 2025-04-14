@@ -6,7 +6,7 @@ const userController = {
     
   },
   profile: function (req, res) {
-    return res.render('profile', {listaUsuarios: baseDatos.usuario,
+    return res.render('profile', {listaUsuarios: baseDatos.usuario, listaProductos: baseDatos.productos,
       habilitado: true
     })
   },
