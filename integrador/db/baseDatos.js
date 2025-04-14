@@ -5,7 +5,7 @@ const baseDatos = {
         contrasenia: "123456789",
         fechaNacimiento: "17/10/2005",
         domicilio: "Buenos Aires, Pilar",
-        imagenPerfil: "/images/users/fotoPerfil.jpg"
+        imagenPerfil: "/images/users/fotoPerfil.jpg",
     },
     productos: [
       {

@@ -5,7 +5,7 @@
             <div class="row align-items-center">
                 <div class="col-5 col-md-2">
                     <a href="/" class="main-header_home-link">
-                        <img src="/images/logo-mercado-liebre.svg" alt="Logo">
+                        <img src="/images/users/logoa.svg">
                     </a>
                 </div>
                 <div class="col-7 col-md-6">
@@ -37,10 +37,9 @@
                             <%= listaUsuarios.nombre %> <i class="fas fa-user"></i>
                         </a></li> 
                         <li>
-                            <form action="/logout" method="post">
-                                <button class="logout" type="submit">
-                                    Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-                                </button>
+                            <form action="/" method="get">
+                               <a  class="Acolor"  href="/">Cerrar sesión <i class="fas fa-sign-in-alt"></i> </a>
+                                
                             </form>
                         </li>
                         <% } %>

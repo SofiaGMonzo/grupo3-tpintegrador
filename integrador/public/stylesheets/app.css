@@ -140,12 +140,7 @@ hr {
   font-size: 1.5em;
 }
 
-.logout{
-  background: transparent;
-  border: 0px;
-  cursor: pointer;
-  font-size: 1em;
-}
+
 
 .logout:hover{
   color: #1259c3;
@@ -503,6 +498,7 @@ textarea.form-input {
 
 .foto-perfil{
   border-radius: 50%;
+  width: 100%;
 }
 
 .main-title{
@@ -639,7 +635,6 @@ a.Acolor {
   .right-navbar {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
     color: #c9bebe;
   }
