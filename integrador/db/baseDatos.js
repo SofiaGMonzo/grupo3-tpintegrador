@@ -208,7 +208,17 @@ const baseDatos = {
           }
         ]
       }
-    ]
+    ], 
+    filtrarId: function (idBuscado) {
+      const idEncontrado = []
+      for (let i = 0; i < this.productos.length; i++) {
+          const element = this.productos[i];
+          if (element.id == idBuscado) {
+              idEncontrado.push(element)
+          }       
+      }
+      return idEncontrado;
+    }
     
 }
 

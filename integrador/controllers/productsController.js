@@ -7,21 +7,19 @@ const productsController = {
         return res.render ('product-add')
     },   
     product: function (req, res) {
-        const idBuscado = req.params.id;
-        const producto = {}
-        for (let i = 0; i < baseDatos.productos.length; i++) {
-            const element = array[i];
-            if (element.id == idBuscado) {
-                producto = element
-            }       
-        }
+        
+        let idBuscado = req.params.id;
+        let nuevoProducto = baseDatos.filtrarId(idBuscado);
+       
 
-        return res.render ('product', {producto:  producto,
-        })
-},
-    productDetail: function (req, res){
-        return res.render ('product')
-    }
+        return res.render('product', 
+            {
+                info: nuevoProducto,
+                comentarioInfo: nuevoProducto[0].comentarios
+            }
+        )
+    }, 
+    
 }
 
 module.exports = productsController;
