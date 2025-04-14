@@ -25,6 +25,11 @@ const baseDatos = {
             nombreUsuario: "Elena Suárez",
             texto: "La estampa se mantiene perfecta después de varios lavados.",
             imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Maria Suárez",
+            texto: "La estampa se mantiene perfecta después de varios lavados.",
+            imagenPerfil: "/images/users/2.jpeg"
           }
         ]
       },
@@ -43,6 +48,11 @@ const baseDatos = {
           },
           {
             nombreUsuario: "Carlos Martín",
+            texto: "Ideal para regalar, mi novia la amó.",
+            imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Carlos Pereyra",
             texto: "Ideal para regalar, mi novia la amó.",
             imagenPerfil: "/images/users/images.jpeg"
           }
@@ -65,6 +75,11 @@ const baseDatos = {
             nombreUsuario: "Tomás Ledesma",
             texto: "La uso para salir, todos me preguntan dónde la compré.",
             imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Tomás Gomez",
+            texto: "La uso para salir, todos me preguntan dónde la compré.",
+            imagenPerfil: "/images/users/images.jpeg"
           }
         ]
       },
@@ -85,6 +100,11 @@ const baseDatos = {
             nombreUsuario: "Ariel Gutierrez",
             texto: "Hermoso diseño y colores brillantes.",
             imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Nicolás Gardel",
+            texto: "Liviana y fresca, ideal para días calurosos.",
+            imagenPerfil: "/images/users/images.jpeg"
           }
         ]
       },
@@ -103,6 +123,11 @@ const baseDatos = {
           },
           {
             nombreUsuario: "Florencia Álvarez",
+            texto: "Me encanta, tiene un estilo súper único.",
+            imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Juan Ignacio Premoli",
             texto: "Me encanta, tiene un estilo súper único.",
             imagenPerfil: "/images/users/2.jpeg"
           }
@@ -125,6 +150,11 @@ const baseDatos = {
             nombreUsuario: "David Salas",
             texto: "Queda re bien con jeans o pantalones claros.",
             imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Juan Perez",
+            texto: "Queda re bien con jeans o pantalones claros.",
+            imagenPerfil: "/images/users/images.jpeg"
           }
         ]
       },
@@ -143,6 +173,11 @@ const baseDatos = {
           },
           {
             nombreUsuario: "Gustavo Rey",
+            texto: "Muy buena calidad y no se encoge.",
+            imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Gustavo Muñoz",
             texto: "Muy buena calidad y no se encoge.",
             imagenPerfil: "/images/users/images.jpeg"
           }
@@ -165,6 +200,11 @@ const baseDatos = {
             nombreUsuario: "Rocío Varela",
             texto: "Es cómoda y la tela es gruesita, muy buena.",
             imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Rocío Magnin",
+            texto: "Es cómoda y la tela es gruesita, muy buena.",
+            imagenPerfil: "/images/users/2.jpeg"
           }
         ]
       },
@@ -185,6 +225,11 @@ const baseDatos = {
             nombreUsuario: "Lucas Romero",
             texto: "Ya me compré otra del mismo estilo, 10/10.",
             imagenPerfil: "/images/users/images.jpeg"
+          },
+          {
+            nombreUsuario: "Lucas Monzo",
+            texto: "Ya me compré otra del mismo estilo, 10/10.",
+            imagenPerfil: "/images/users/images.jpeg"
           }
         ]
       },
@@ -203,6 +248,11 @@ const baseDatos = {
           },
           {
             nombreUsuario: "Agustina Ríos",
+            texto: "Hermosa y muy original, la volvería a comprar.",
+            imagenPerfil: "/images/users/2.jpeg"
+          },
+          {
+            nombreUsuario: "Agustina Diaz",
             texto: "Hermosa y muy original, la volvería a comprar.",
             imagenPerfil: "/images/users/2.jpeg"
           }
