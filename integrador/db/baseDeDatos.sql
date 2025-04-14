@@ -41,6 +41,7 @@ INSERT INTO productos VALUES
 (DEFAULT, 1, '/images/products/6.webp', 'Remera Alphaville - Red Rose', 'Diseño minimalista con una rosa roja y letras discretas.',null, null, null),
 (DEFAULT, 1, '/images/products/7.webp', 'Remera Alphaville - Sounds Like a Melody', 'Remera gris con frase del tema y notas musicales sutiles.',null, null, null),
 (DEFAULT, 1, '/images/products/8.webp', 'Remera Alphaville - Afternoons in Utopia', 'Estilo oversize con ilustración inspirada en el álbum.',null, null, null),
+(DEFAULT, 1, '/images/products/9.webp', 'Remera Alphaville - Universal Daddy', 'Diseño negro con tipografía blanca y pequeños gráficos.', null, null, null),
 (DEFAULT, 1, '/images/products/10.webp', 'Remera Alphaville - Heartbreak City', 'Inspirada en los visuales urbanos de la canción, full estilo retro.',null, null, null);
 
 CREATE TABLE comentarios
@@ -73,4 +74,16 @@ INSERT INTO comentarios VALUES
 (DEFAULT,9, 4, '¡Amo Alphaville! Esta remera es un must.', null, null, null),
 (DEFAULT,9, 1, 'Ya me compré otra del mismo estilo, 10/10.', null, null, null),
 (DEFAULT,1, 2, '¡Muy buena! Se nota que es producto oficial.', null, null, null),
-(DEFAULT,2, 3, 'Hermosa y muy original, la volvería a comprar.', null, null, null);
+(DEFAULT,2, 3, 'Hermosa y muy original, la volvería a comprar.', null, null, null),
+(DEFAULT,5, 3, 'Me encanta, tiene un estilo súper único.', null, null, null),
+(DEFAULT,6, 4, 'La imagen de la rosa es hermosa, delicada pero llamativa.', null, null, null),
+(DEFAULT,6, 2, 'Queda re bien con jeans o pantalones claros.', null, null, null),
+(DEFAULT,7, 3, 'Ideal para los que amamos la música de los 80.', null, null, null),
+(DEFAULT,7, 4, 'Muy buena calidad y no se encoge.', null, null, null),
+(DEFAULT,8, 5, 'Me encanta la onda que tiene, súper original.', null, null, null),
+(DEFAULT,8, 2, 'Es cómoda y la tela es gruesita, muy buena.', null, null, null),
+(DEFAULT,9, 4, '¡Amo Alphaville! Esta remera es un must.', null, null, null),
+(DEFAULT,9, 1, 'Ya me compré otra del mismo estilo, 10/10.', null, null, null),
+(DEFAULT,1, 2, '¡Muy buena! Se nota que es producto oficial.', null, null, null),
+(DEFAULT,2, 3, 'Hermosa y muy original, la volvería a comprar.', null, null, null),
+(DEFAULT,2, 4, 'Ideal para regalar, mi novia la amó.', null, null, null);
