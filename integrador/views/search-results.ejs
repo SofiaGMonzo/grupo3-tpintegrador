@@ -8,50 +8,38 @@
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> 
-			</h2>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products">
-						<figure class="product-box_image">
-							<img src="/images/products/1.webp" alt="">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera ALPHAVILLE</h2>
-							<p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-							<p>Comentarios: 5</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products">
-						<figure class="product-box_image">
-							<img src="/images/products/2.webp" alt="">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera ALPHAVILLE</h2>
-							<p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-							<p>Comentarios: 5</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products">
-						<figure class="product-box_image">
-							<img src="/images/products/3.webp" alt="">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera ALPHAVILLE</h2>
-							<p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-							<p>Comentarios: 5</p>
-						</article>
-					</a>
-				</section>
+					<!-- Show the "ultimos" products -->
+
+
+					<% if (habilitado) { %>
+						<% for( let i=0; i < listado.length; i++ ) { %>
+							<div class="col-12 col-sm-6 col-lg-3">
+								<section class="product-box">
+									<a href="/products/id/<%= listado[i].id %>">
+										<figure class="product-box_image">
+											<img src="<%= listado[i].imagen %>" alt="">
+										</figure>
+										<article class="product-box_data">
+											<h2>
+												<%= listado[i].nombre %>
+											</h2>
+											<p>
+												<%= listado[i].descripcion %>
+											</p>
+
+										</article>
+									</a>
+								</section>
+							</div>
+							<% } %>
+								<% } else { %>
+
+									<i>Las remeras no estan habilitados por ahora</i>
+
+									<% } %>
+
+
+				</div>
 			</div>
 
 	<%- include('./partials/footer') %>

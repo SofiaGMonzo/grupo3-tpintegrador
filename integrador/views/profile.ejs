@@ -28,155 +28,41 @@
 </section>
 <!-- /Datos del usuario -->
 
-<!-- Mis productos -->
-<div class="container products-wrapper">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="products-title">Mis productos</h2>
+        <!-- Show the "ultimos" products -->
+
+        <div class="container products-wrapper">
+            <div class="row">
+                <% if (habilitado) { %>
+                    <% for( let i=0; i < listado.length; i++ ) { %>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <section class="product-box">
+                                <a href="/products/id/<%= listado[i].id %>">
+                                    <figure class="product-box_image">
+                                        <img src="<%= listado[i].imagen %>" alt="">
+                                    </figure>
+                                    <article class="product-box_data">
+                                        <h2>
+                                            <%= listado[i].nombre %>
+                                        </h2>
+                                        <p>
+                                            <%= listado[i].descripcion %>
+                                        </p>
+        
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                        <% } %>
+                            <% } else { %>
+        
+                                <i>Las remeras no estan habilitados por ahora</i>
+        
+                                <% } %>
+        
+        
+            </div>
         </div>
-        <!-- Show mis productos -->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src= "/images/products/1.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/2.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/3.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/4.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/5.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/6.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/7.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/8.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/9.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/products">
-                    <figure class="product-box_image">
-                        <img src="/images/products/10.webp" alt="cafetera moulinex">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>Remera ALPHAVILLE</h2>
-                        <p>Remera de Alphaville con onda retro, ideal para fanas del synth-pop y para tirar facha con estilo ochentoso.</p>
-                        <p>Comentarios: 5</p>
-                    </article>
-                </a>
-            </section>
-        </div>
-    </div>
-</div>
+
 <!-- /Mis productos -->
     <!-- /Footer -->
     <%- include('./partials/footer') %>

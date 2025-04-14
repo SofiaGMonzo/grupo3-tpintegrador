@@ -32,10 +32,9 @@ CREATE TABLE productos (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
-INSERT INTO productos VALUES
-VALUES 
-(DEFAULT, 1, '/images/products/1.webp', 'Remera Alphaville - Forever Young', 'Diseño clásico con el logo de \'Forever Young\', ideal para fans de los 80s.'),
-(DEFAULT, 1, '/images/products/2.webp', 'Remera Alphaville - Big in Japan', 'Remera negra con gráfico vintage inspirado en el hit \'Big in Japan\'.'),
+INSERT INTO productos VALUES 
+(DEFAULT, 1, '/images/products/1.webp', 'Remera Alphaville - Forever Young', 'Diseño clásico con el logo de \Forever Young\, ideal para fans de los 80s.'),
+(DEFAULT, 1, '/images/products/2.webp', 'Remera Alphaville - Big in Japan', 'Remera negra con gráfico vintage inspirado en el hit \Big in Japan\.'),
 (DEFAULT, 1, '/images/products/3.webp', 'Remera Alphaville - The Jet Set', 'Estilo moderno con colores vibrantes y tipografía ochentosa.'),
 (DEFAULT, 1, '/images/products/4.webp', 'Remera Alphaville - Summer in Berlin', 'Inspirada en los paisajes urbanos de Berlín, ideal para el verano.'),
 (DEFAULT, 1, '/images/products/5.webp', 'Remera Alphaville - Dance with Me', 'Remera blanca con tipografía retro y detalles en rojo.'),

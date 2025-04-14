@@ -1,13 +1,18 @@
 
 const express = require('express');
 const router = express.Router();
+const baseDatos = require("../db/baseDatos")
 
 const mainController = {
     index: function(req, res) {
-        res.render('index');
+        return res.render('index', {listado : baseDatos.productos,
+            habilitado: true
+});
     },
     searchResults: function (req, res) {
-        return res.render('search-results')
+        return res.render('search-results', {listado : baseDatos.productos,
+            habilitado: true
+})
       }
 };
 
