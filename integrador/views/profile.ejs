@@ -4,11 +4,11 @@
 <section class="info-usuario container products-wrapper">
     <div class="row">
         <div class="img-container offset-3 col-2">
-            <img src="/images/users/fotoP.avif""  alt="foto de perfil" class="foto-perfil">
+            <img src="/images/users/ <%= listaUsuarios.imagenPerfil %>"  alt="foto de perfil" class="foto-perfil">
         </div>
         <div class="data-container col-6">
             <div class="d-flex align-items-center ">
-                <h1 class="main-title"> Sofia Monzo
+                <h1 class="main-title"> <%= listaUsuarios.nombre %>
                     <a href="/profile">
                         <i class="fas fa-cog"></i>
                     </a>
@@ -17,7 +17,7 @@
             </div>
             <div>
                 <ul class="">
-                    <li>smonzo@udesa.edu.ar</li>
+                    <li><%= listaUsuarios.email %></li>
                     <li>8 productos</li>
                     <li>200 seguidores</li>
                     <li>300 comentarios</li>
@@ -33,20 +33,17 @@
         <div class="container products-wrapper">
             <div class="row">
                 <% if (habilitado) { %>
-                    <% for( let i=0; i < listado.length; i++ ) { %>
+                    <% for( let i=0; i < listaUsuarios.length; i++ ) { %>
                         <div class="col-12 col-sm-6 col-lg-3">
                             <section class="product-box">
-                                <a href="/products/id/<%= listado[i].id %>">
+                                <a href="/products/id/<%= listaUsuarios[i].id %>">
                                     <figure class="product-box_image">
-                                        <img src="<%= listado[i].imagen %>" alt="">
+                                        <img src="<%= listaUsuarios[i].imagen %>" alt="">
                                     </figure>
                                     <article class="product-box_data">
                                         <h2>
-                                            <%= listado[i].nombre %>
+                                            <%= listaUsuarios[i].nombre %>
                                         </h2>
-                                        <p>
-                                            <%= listado[i].descripcion %>
-                                        </p>
         
                                     </article>
                                 </a>
