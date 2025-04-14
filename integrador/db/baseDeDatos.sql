@@ -21,7 +21,7 @@ INSERT INTO usuarios VALUES
 (DEFAULT, 'valenruiz@mail.com', 'password', '2000-09-14', 33777888, 'foto.png', NULL, NULL, NULL);
 
 CREATE TABLE productos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT UNSIGNED,
     imagen VARCHAR(250),
     nombre VARCHAR(250) NOT NULL,
@@ -33,15 +33,24 @@ CREATE TABLE productos (
 );
 
 INSERT INTO productos VALUES 
-(DEFAULT, 1, '/images/products/1.webp', 'Remera Alphaville - Forever Young', 'Diseño clásico con el logo de \Forever Young\, ideal para fans de los 80s.'),
-(DEFAULT, 1, '/images/products/2.webp', 'Remera Alphaville - Big in Japan', 'Remera negra con gráfico vintage inspirado en el hit \Big in Japan\.'),
-(DEFAULT, 1, '/images/products/3.webp', 'Remera Alphaville - The Jet Set', 'Estilo moderno con colores vibrantes y tipografía ochentosa.'),
-(DEFAULT, 1, '/images/products/4.webp', 'Remera Alphaville - Summer in Berlin', 'Inspirada en los paisajes urbanos de Berlín, ideal para el verano.'),
-(DEFAULT, 1, '/images/products/5.webp', 'Remera Alphaville - Dance with Me', 'Remera blanca con tipografía retro y detalles en rojo.'),
-(DEFAULT, 1, '/images/products/6.webp', 'Remera Alphaville - Red Rose', 'Diseño minimalista con una rosa roja y letras discretas.'),
-(DEFAULT, 1, '/images/products/7.webp', 'Remera Alphaville - Sounds Like a Melody', 'Remera gris con frase del tema y notas musicales sutiles.'),
-(DEFAULT, 1, '/images/products/8.webp', 'Remera Alphaville - Afternoons in Utopia', 'Estilo oversize con ilustración inspirada en el álbum.'),
-(DEFAULT, 1, '/images/products/9.webp', 'Remera Alphaville - Universal Daddy', 'Diseño negro con tipografía blanca y pequeños gráficos.'),
-(DEFAULT, 1, '/images/products/10.webp', 'Remera Alphaville - Heartbreak City', 'Inspirada en los visuales urbanos de la canción, full estilo retro.');
+(DEFAULT, 1, '/images/products/1.webp', 'Remera Alphaville - Forever Young', 'Diseño clásico con el logo de \Forever Young\, ideal para fans de los 80s.',null, null, null),
+(DEFAULT, 1, '/images/products/2.webp', 'Remera Alphaville - Big in Japan', 'Remera negra con gráfico vintage inspirado en el hit \Big in Japan\.',null, null, null),
+(DEFAULT, 1, '/images/products/3.webp', 'Remera Alphaville - The Jet Set', 'Estilo moderno con colores vibrantes y tipografía ochentosa.',null, null, null),
+(DEFAULT, 1, '/images/products/4.webp', 'Remera Alphaville - Summer in Berlin', 'Inspirada en los paisajes urbanos de Berlín, ideal para el verano.',null, null, null),
+(DEFAULT, 1, '/images/products/5.webp', 'Remera Alphaville - Dance with Me', 'Remera blanca con tipografía retro y detalles en rojo.',null, null, null),
+(DEFAULT, 1, '/images/products/6.webp', 'Remera Alphaville - Red Rose', 'Diseño minimalista con una rosa roja y letras discretas.',null, null, null),
+(DEFAULT, 1, '/images/products/7.webp', 'Remera Alphaville - Sounds Like a Melody', 'Remera gris con frase del tema y notas musicales sutiles.',null, null, null),
+(DEFAULT, 1, '/images/products/8.webp', 'Remera Alphaville - Afternoons in Utopia', 'Estilo oversize con ilustración inspirada en el álbum.',null, null, null),
+(DEFAULT, 1, '/images/products/10.webp', 'Remera Alphaville - Heartbreak City', 'Inspirada en los visuales urbanos de la canción, full estilo retro.',null, null, null);
 
--- CREATE TABLE comentarios ( id INT AUTO_INCREMENT PRIMARY KEY, producto_id INT, usuario_id INT, texto TEXT,createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP, FOREIGN KEY (producto_id) REFERENCES productos(id),FOREIGN KEY (usuario_id) REFERENCES usuarios(id)); -->
+CREATE TABLE comentarios
+( id INT AUTO_INCREMENT PRIMARY KEY,
+ producto_id INT UNSIGNED,
+ usuario_id INT UNSIGNED,
+ texto TEXT,
+ createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
+ FOREIGN KEY (producto_id) REFERENCES productos(id),
+ FOREIGN KEY (usuario_id) REFERENCES usuarios(id));
+ 
