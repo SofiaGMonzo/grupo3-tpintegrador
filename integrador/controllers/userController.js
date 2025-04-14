@@ -1,6 +1,4 @@
-const express = require('express');
-const router = express.Router();
-const baseDatos = require("../db/baseDatos")
+const baseDatos = require("../db/baseDatos");
 
 const userController = {
   login: function (req, res) {
@@ -10,7 +8,7 @@ const userController = {
   profile: function (req, res) {
     return res.render('profile', {listaUsuarios: baseDatos.usuario,
       habilitado: true
-})
+    })
   },
   register: function (req, res) {
     return res.render('register')

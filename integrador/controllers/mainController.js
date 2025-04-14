@@ -1,6 +1,3 @@
-
-const express = require('express');
-const router = express.Router();
 const baseDatos = require("../db/baseDatos")
 
 const mainController = {

@@ -1,10 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const baseDatos = require("../db/baseDatos")
+
+const baseDatos = require("../db/baseDatos");
 
 const productsController = {
     productAdd: function (req, res) {
-        return res.render ('product-add')
+        return res.render ('product-add',  {listaUsuarios: baseDatos.usuario,
+            habilitado: true
+          })
     },   
     product: function (req, res) {
         
