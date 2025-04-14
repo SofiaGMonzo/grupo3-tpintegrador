@@ -2,70 +2,70 @@
  <%- include('./partials/head') %>
 <%- include('./partials/header') %>
 	<!-- /Header -->
-	<!-- product detail BASE DE MAQUETA-->
+	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Remera Alphaville</h2> 
+			<h2 class="products-title"><%= producto[i].nombre %></h2> 
 			<p class="product-detail-description">
-				<a href="/profile">Editar</a>
+				<a href="product-add.html">Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/1.webp" alt="" class="product-detail-img">
+					<img src="<%= producto[i].imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Remera de Alphaville con un diseño retro bien ochentoso, perfecta para quienes aman el synth-pop y quieren llevar el estilo de ‘Forever Young’ a todos lados. Súper cómoda, ideal para recitales, salidas con amigos o simplemente para tirar toda la facha mientras escuchás tus temas favoritos.</p>
+						<%= producto[i].descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<img src="/images/users/5.avif" alt="">
+							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/profile">Elena Suárez: </a> </strong>
-								La estampa se mantiene perfecta después de varios lavados.</p>
+								<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
 							</div>
 						</article>
 						<article>
-							<img src="/images/users/4.jpeg" alt="">
+							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Carlos Martín</a> </strong>
-									Ideal para regalar, mi novia la amó.</p>
+									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
 							</div>
 						</article>
 						<article>
-							<img src="/images/users/3.jpeg"" alt="">
+							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Nombre usuario: </a> </strong>
-									Estilo moderno con colores vibrantes y tipografía ochentosa.
+									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									</p>
 							</div>
 						</article>
 						<article>
-							<img src="/images/users/2.jpeg" alt="">
+							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Valentina Ruiz </a> </strong>
-									Me encanta cómo se siente la tela, súper suave.</p>
+									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
 							</div>
 						</article>
 						<article>
-							<img src="/images/users/images.jpeg" alt="">
+							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Brian Gomez </a> </strong>
-									Aguante Forever Young
-								</p>
+									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
+									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
 							</div>
 						</article>
 
 					</section>
-					<form action="/" class="form" method="get">
+					<form class="form" action="" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>		
+						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
 				</div>

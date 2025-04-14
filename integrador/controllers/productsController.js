@@ -8,19 +8,16 @@ const productsController = {
     },   
     product: function (req, res) {
         const idBuscado = req.params.id;
-        let idEncontrado = [];
-    
+        const producto = {}
         for (let i = 0; i < baseDatos.productos.length; i++) {
-            const element =  baseDatos.productos[i];
-    
-            if (element.id == idBuscada) {
-                idEncontrado.push(element);
-            }
-            
+            const element = array[i];
+            if (element.id == idBuscado) {
+                producto = element
+            }       
         }
-    
-        return res.send(idEncontrado)
-        return res.render ('product')
+
+        return res.render ('product', {producto:  producto,
+        })
 },
     productDetail: function (req, res){
         return res.render ('product')
