@@ -1,5 +1,7 @@
 
 const baseDatos = require("../db/baseDatos");
+const db = require("../database/models");
+const Product = db.Product
 
 const productsController = {
     productAdd: function (req, res) {
@@ -23,4 +25,21 @@ const productsController = {
     
 }
 
+/*ver como aplicar al trabajo
+let productsController = {
+
+    Product.findAll({
+        include: [
+            {Association:"user"}
+        ]
+    })
+    .then(function(resultados){
+        return 
+    })
+    .catch(function(error){
+        return 
+    })
+}
+*/
 module.exports = productsController;
+

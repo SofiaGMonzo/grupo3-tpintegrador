@@ -1,4 +1,6 @@
 const baseDatos = require("../db/baseDatos");
+const db = require("../database/models");
+const User = db.User
 
 const userController = {
   login: function (req, res) {
@@ -14,5 +16,21 @@ const userController = {
     return res.render('register')
   }
 }
+/*ver como aplicar al trabajo
+let userController = {
+
+    User.findAll({
+        include: [
+            {Association:"product"}
+        ]
+    })
+    .then(function(resultados){
+        return 
+    })
+    .catch(function(error){
+        return 
+    })
+}
+*/
 
 module.exports = userController;
