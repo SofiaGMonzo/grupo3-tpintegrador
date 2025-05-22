@@ -41,5 +41,7 @@ let productsController = {
     })
 }
 */
+
+//hacer aca lo de comentarios, NO  un nuevo controller
 module.exports = productsController;
 

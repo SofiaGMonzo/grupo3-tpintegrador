@@ -4,18 +4,33 @@ module.exports = function (sequelize, dataTypes){
         id: {
             autoIncrement : true,
             primaryKey : true,
-            type : dataTypes.INTEGER
+            type : dataTypes//ver
         },
-        title: {
-            type : dataTypes.STRING
+        email: {
+            type: dataTypes.STRING
         },
-        created_at: {
-	        type: dataTypes.DATE
+        contrasenia: {
+            type: dataTypes.STRING
         },
-        updated_at: {
-	        type: dataTypes.DATE
+        fechaNAC: {
+            type: dataTypes.DATE
         },
-  	}
+        dni: {
+            type: dataTypes.INTEGER
+        },
+        foto: {
+            type: dataTypes.STRING
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
+        },
+        deletedAt: {
+            type: dataTypes.DATE
+        }
+    };
     /*VER SI NO CONVIENE PONER ASI:
     id: {
       autoIncrement: ,
@@ -34,22 +49,26 @@ module.exports = function (sequelize, dataTypes){
   }; */
 
     let config = {
-        tableName: "User",
-        timestamps: false,
-        //underscored: true, //No es necesario si timestamps es false.
-    }
+        tableName: "usuarios",
+        timestamps: true,
+        underscored: true, 
+        paranoid: true
+    };
+
+    let User = sequelize.define(alias, cols, config);
+
     User.associate = function(models) {
-        User.BelongsTo(models.product, {
-            as: "product",
-            through: "product_id",
-            foreignKey: "product_id",
-            otherKey: "comentario_id", /*ver si esto va */
+        User.hasMany(models.Product, {
+            as: "products",
+            foreignKey: "usuario_id",
             timestamps: false
         });
-        /*ver si armar de comentarios */
-    }
-    
-    
-    let User = sequelize.define(alias, cols, config);
+        User.hasMany(models.Comentario, {
+            as: "comentarios",
+            foreignKey: "usuario_id",
+            timestamps: false
+        });
+    };
+
     return User;
-}
+};

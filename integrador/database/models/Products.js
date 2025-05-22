@@ -1,22 +1,33 @@
-
 module.exports = function (sequelize, dataTypes){
     let alias = "Product";
     let cols = {
         id: {
             autoIncrement : true,
             primaryKey : true,
-            type : dataTypes.INTEGER
+            type : dataTypes.INTEGER.UNSIGNED
         },
-        title: {
-            type : dataTypes.STRING
+        usuario_id: {
+            type: dataTypes.INTEGER.UNSIGNED
         },
-        created_at: {
-	        type: dataTypes.DATE
+        imagen: {
+            type: dataTypes.STRING
         },
-        updated_at: {
-	        type: dataTypes.DATE
+        nombre: {
+            type: dataTypes.STRING
         },
-    }    
+        descripcion: {
+            type: dataTypes.TEXT
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
+        },
+        deletedAt: {
+            type: dataTypes.DATE
+        }
+    };
     /*VER SI NO CONVIENE HACERLO ASI: 
     id: {
       autoIncrement: ,
@@ -35,22 +46,27 @@ module.exports = function (sequelize, dataTypes){
     user_id(?)  */
 
     let config = {
-        tableName: "products",
-        timestamps: false,
-        //underscored: true, //No es necesario si timestamps es false.
-    }
-    Products.associate = function(models) {
-        Products.HasMany(models.User, {
-            as: "product",
-            through: "user_id",
-            foreignKey: "user_id",
-            otherKey: "comentario_id", /*ver si esto va */
+        tableName: "productos",
+        timestamps: true,
+        underscored: true,
+        paranoid: true
+    };
+
+    let Product = sequelize.define(alias, cols, config);
+
+    Product.associate = function(models) {
+        Product.belongsTo(models.User, {
+            as: "usuario",
+            foreignKey: "usuario_id",
             timestamps: false
         });
-        /*ver si armar de comentarios */
-    }
-    
-    
-    let Products = sequelize.define(alias, cols, config);
-    return Products;
-}
+        Product.hasMany(models.Comentario, {
+            as: "comentarios",
+            foreignKey: "producto_id",
+            timestamps: false
+        });
+    };
+
+    return Product;
+};
+
