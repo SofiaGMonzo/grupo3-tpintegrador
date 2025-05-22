@@ -2,6 +2,7 @@
 const baseDatos = require("../db/baseDatos");
 const db = require("../database/models");
 const Product = db.Product
+const Comentario = db.Comentario; // Importar el modelo de Comentarios
 
 const productsController = {
     productAdd: function (req, res) {
@@ -9,7 +10,7 @@ const productsController = {
             habilitado: true
           })
     },   
-    product: function (req, res) {
+    /*product: function (req, res) {
         
         let idBuscado = req.params.id;
         let nuevoProducto = baseDatos.filtrarId(idBuscado);
@@ -21,8 +22,47 @@ const productsController = {
                 comentarioInfo: nuevoProducto[0].comentarios
             }
         )
-    }, 
-    
+
+    },  */  
+    producto: function(req, res) {
+    let idBuscado = req.params.id;
+    console.log('idBuscado:', idBuscado); // Para debug
+
+     Product.findByPk(idBuscado, {
+         include: [
+            { association: "usuario" },
+            { association: "comentarios" }
+                     ]
+        })
+    .then(function(nuevoProducto) {
+          if (!nuevoProducto) {
+            return res.status(404).send('Producto no encontrado');
+          }
+         return res.render('product', {
+             info: nuevoProducto,
+             comentarioInfo: nuevoProducto.comentarios
+             });
+            })
+        .catch(function(error) {
+             console.error(error);
+             return res.status(500).send("Error al obtener el producto.");
+                });
+    },
+       comentariosRandom: function (req, res) {
+        const { producto_id, usuario_id, texto } = req.body;
+        Comentario.create({
+            producto_id,
+            usuario_id,
+            texto
+        })
+        .then(function() {
+            return res.redirect(`/product/${producto_id}`); 
+        })
+        .catch(function(error) {
+            console.error(error);
+            return res.status(500).send("Error al agregar el comentario.");
+        });
+    }
 }
 
 /*ver como aplicar al trabajo

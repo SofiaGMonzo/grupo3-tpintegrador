@@ -1,4 +1,65 @@
-module.exports = function (sequelize, dataTypes){
+module.exports = function (sequelize, DataTypes) {
+  let alias = "Product";
+  let cols = {
+    id: {
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER.UNSIGNED
+    },
+    usuario_id: {
+      type: DataTypes.INTEGER.UNSIGNED
+    },
+    imagen: {
+      type: DataTypes.STRING
+    },
+    nombre: {
+      type: DataTypes.STRING
+    },
+    descripcion: {
+      type: DataTypes.TEXT
+    },
+    created_at: {
+      type: DataTypes.DATE
+    },
+    updated_at: {
+      type: DataTypes.DATE
+    },
+    deleted_at: {
+      type: DataTypes.DATE
+    }
+  };
+
+  let config = {
+    tableName: "productos",
+    timestamps: true,
+    underscored: true,
+    paranoid: true
+  };
+
+  let Product = sequelize.define(alias, cols, config);
+
+  Product.associate = function(models) {
+    Product.belongsTo(models.User, {
+      as: "usuario",
+      foreignKey: "usuario_id"
+    });
+    Product.hasMany(models.Comentario, {
+      as: "comentarios",
+      foreignKey: "producto_id"
+    });
+  };
+
+  return Product;
+};
+
+
+
+
+//         })
+
+
+
+/* module.exports = function (sequelize, dataTypes){
     let alias = "Product";
     let cols = {
         id: {
@@ -43,7 +104,7 @@ module.exports = function (sequelize, dataTypes){
     updated_at: {
       type: 
     } 
-    user_id(?)  */
+    user_id(?)  
 
     let config = {
         tableName: "productos",
@@ -68,5 +129,5 @@ module.exports = function (sequelize, dataTypes){
     };
 
     return Product;
-};
+}; */
 
