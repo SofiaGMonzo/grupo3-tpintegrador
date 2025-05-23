@@ -1,110 +1,42 @@
 module.exports = function (sequelize, DataTypes) {
-  let alias = "Product";
-  let cols = {
-    id: {
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER.UNSIGNED
-    },
-    usuario_id: {
-      type: DataTypes.INTEGER.UNSIGNED
-    },
-    imagen: {
-      type: DataTypes.STRING
-    },
-    nombre: {
-      type: DataTypes.STRING
-    },
-    descripcion: {
-      type: DataTypes.TEXT
-    },
-    created_at: {
-      type: DataTypes.DATE
-    },
-    updated_at: {
-      type: DataTypes.DATE
-    },
-    deleted_at: {
-      type: DataTypes.DATE
-    }
-  };
-
-  let config = {
-    tableName: "productos",
-    timestamps: true,
-    underscored: true,
-    paranoid: true
-  };
-
-  let Product = sequelize.define(alias, cols, config);
-
-  Product.associate = function(models) {
-    Product.belongsTo(models.User, {
-      as: "usuario",
-      foreignKey: "usuario_id"
-    });
-    Product.hasMany(models.Comentario, {
-      as: "comentarios",
-      foreignKey: "producto_id"
-    });
-  };
-
-  return Product;
-};
-
-
-
-
-//         })
-
-
-
-/* module.exports = function (sequelize, dataTypes){
     let alias = "Product";
     let cols = {
         id: {
-            autoIncrement : true,
-            primaryKey : true,
-            type : dataTypes.INTEGER.UNSIGNED
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER.UNSIGNED
         },
         usuario_id: {
-            type: dataTypes.INTEGER.UNSIGNED
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false 
         },
         imagen: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true 
         },
         nombre: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false 
         },
         descripcion: {
-            type: dataTypes.TEXT
+            type: DataTypes.TEXT,
+            allowNull: true 
         },
-        createdAt: {
-            type: dataTypes.DATE
+        created_at: {
+            type: DataTypes.DATE,
+            allowNull: true, 
+            defaultValue: null 
         },
-        updatedAt: {
-            type: dataTypes.DATE
+        updated_at: {
+            type: DataTypes.DATE,
+            allowNull: true, 
+            defaultValue: null 
         },
-        deletedAt: {
-            type: dataTypes.DATE
+        deleted_at: {
+            type: DataTypes.DATE,
+            allowNull: true 
         }
     };
-    /*VER SI NO CONVIENE HACERLO ASI: 
-    id: {
-      autoIncrement: ,
-      primaryKey: ,
-      type: 
-    },
-    title: {
-      type: 
-    },
-    created_at: {
-      type: 
-    },
-    updated_at: {
-      type: 
-    } 
-    user_id(?)  
 
     let config = {
         tableName: "productos",
@@ -118,16 +50,13 @@ module.exports = function (sequelize, DataTypes) {
     Product.associate = function(models) {
         Product.belongsTo(models.User, {
             as: "usuario",
-            foreignKey: "usuario_id",
-            timestamps: false
+            foreignKey: "usuario_id"
         });
         Product.hasMany(models.Comentario, {
             as: "comentarios",
-            foreignKey: "producto_id",
-            timestamps: false
+            foreignKey: "producto_id"
         });
     };
 
     return Product;
-}; */
-
+};
