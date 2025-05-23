@@ -1,4 +1,4 @@
-const baseDatos = require("../db/baseDatos");
+
 const db = require("../database/models");
 const Product = db.Product;
 const Comentario = db.Comentario;
@@ -6,14 +6,14 @@ const Comentario = db.Comentario;
 const productsController = {
     productAdd: function (req, res) {
         return res.render('product-add', {
-            listaUsuarios: baseDatos.usuario,
-            habilitado: true
+            listaUsuarios: db.usuario,
+            habilitado: true,
         });
     },
 
     product: function (req, res) {
         let idBuscado = req.params.id;
-        let nuevoProducto = baseDatos.filtrarId(idBuscado);
+        let nuevoProducto = db.filtrarId(idBuscado);
 
         return res.render('product', {
             info: nuevoProducto,

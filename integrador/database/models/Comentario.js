@@ -26,14 +26,17 @@ module.exports = function (sequelize, dataTypes){
         }
     };
 
+
     let config = {
         tableName: "comentarios",
         timestamps: true,
-        underscored: true,
+        underscored: false,
         paranoid: true
     };
 
+
     let Comentario = sequelize.define(alias, cols, config);
+
 
     Comentario.associate = function(models) {
         Comentario.belongsTo(models.Product, {
@@ -47,6 +50,7 @@ module.exports = function (sequelize, dataTypes){
             timestamps: false
         });
     };
+
 
     return Comentario;
 };

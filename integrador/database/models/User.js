@@ -4,8 +4,9 @@ module.exports = function (sequelize, dataTypes){
         id: {
             autoIncrement : true,
             primaryKey : true,
-            type : dataTypes//ver
+            type : dataTypes.INTEGER
         },
+
         email: {
             type: dataTypes.STRING
         },
@@ -31,31 +32,18 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE
         }
     };
-    /*VER SI NO CONVIENE PONER ASI:
-    id: {
-      autoIncrement: ,
-      primaryKey: ,
-      type: 
-    },
-    title: {
-      type: 
-    },
-    created_at: {
-      type: 
-    },
-    updated_at: {
-      type: 
-    }
-  }; */
+
 
     let config = {
         tableName: "usuarios",
         timestamps: true,
-        underscored: true, 
+        underscored: false,
         paranoid: true
     };
 
+
     let User = sequelize.define(alias, cols, config);
+
 
     User.associate = function(models) {
         User.hasMany(models.Product, {
@@ -70,5 +58,8 @@ module.exports = function (sequelize, dataTypes){
         });
     };
 
+
     return User;
 };
+
+

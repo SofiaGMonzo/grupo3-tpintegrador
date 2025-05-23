@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const session = require('express-session');
+
 // Rutas
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/products');
@@ -21,6 +23,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//middleware
+app.use(session({
+  secret: 'grupo3',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // Rutas principales
 app.use('/', indexRouter);

@@ -1,3 +1,4 @@
+
 module.exports = function (sequelize, DataTypes) {
     let alias = "Product";
     let cols = {
@@ -8,44 +9,47 @@ module.exports = function (sequelize, DataTypes) {
         },
         usuario_id: {
             type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: false 
+            allowNull: false
         },
         imagen: {
             type: DataTypes.STRING,
-            allowNull: true 
+            allowNull: true
         },
         nombre: {
             type: DataTypes.STRING,
-            allowNull: false 
+            allowNull: false
         },
         descripcion: {
             type: DataTypes.TEXT,
-            allowNull: true 
+            allowNull: true
         },
-        created_at: {
+        createdAt: {
             type: DataTypes.DATE,
-            allowNull: true, 
-            defaultValue: null 
+            allowNull: true,
+            defaultValue: null
         },
-        updated_at: {
+        updatedAt: {
             type: DataTypes.DATE,
-            allowNull: true, 
-            defaultValue: null 
+            allowNull: true,
+            defaultValue: null
         },
-        deleted_at: {
+        deletedAt: {
             type: DataTypes.DATE,
-            allowNull: true 
+            allowNull: true
         }
     };
+
 
     let config = {
         tableName: "productos",
         timestamps: true,
-        underscored: true,
+        underscored: false,
         paranoid: true
     };
 
+
     let Product = sequelize.define(alias, cols, config);
+
 
     Product.associate = function(models) {
         Product.belongsTo(models.User, {
@@ -57,6 +61,7 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: "producto_id"
         });
     };
+
 
     return Product;
 };
