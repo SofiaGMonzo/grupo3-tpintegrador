@@ -2,49 +2,48 @@ const db = require('../database/models');
 
 const mainController = {
   index: function (req, res) {
-    db.Product.findAll()
-      .then(function(resultados) {
-        return res.render("index", {
-          listado: resultados,
-          habilitado: true,
-        });
-      })
-      .catch(function(error) {
-        return res.send(error);
+    db.Product.findAll({
+      include: [{ association: "usuario" }]
+    })
+    .then(function(resultados) {
+      return res.render("index", {
+        listado: resultados,
+        habilitado: true
       });
+    })
+    .catch(function(error) {
+      return res.send(error);
+    });
   },
 
- searchResults: function (req, res) {
-  let busqueda = req.query.busqueda;
+  searchResults: function (req, res) {
+    let busqueda = req.query.busqueda;
 
-  db.Product.findAll({
-    where: {
-      nombre: {
-        [db.Sequelize.Op.like]: "%" + busqueda + "%"
+    db.Product.findAll({
+      where: {
+        nombre: {
+          [db.Sequelize.Op.like]: "%" + busqueda + "%"
+        }
+      },
+      include: [{ association: "usuario" }]
+    })
+    .then(function(resultados) {
+      let mensaje = null;
+      if (resultados.length === 0) {
+        mensaje = "No hay resultados para su criterio de búsqueda";
       }
-    },
-    include: [{ association: "usuario" }]
-  })
-  .then(function(resultados) {
-    let mensaje = null;
-    if (resultados.length === 0) {
-      mensaje = "No hay resultados para su criterio de búsqueda";
-    }
 
-    return res.render("search-results", {
-      listado: resultados,
-      habilitado: true,
-      mensaje: mensaje,
-      searchTerm: busqueda
-    }); 
-   
-
-  })
-  .catch(function(error) {
-    return res.send(error);
-  });
-}
-
+      return res.render("search-results", {
+        listado: resultados,
+        habilitado: true,
+        mensaje: mensaje,
+        searchTerm: busqueda
+      }); 
+    })
+    .catch(function(error) {
+      return res.send(error);
+    });
+  }
 };
 
 module.exports = mainController;
