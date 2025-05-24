@@ -33,7 +33,6 @@ module.exports = function (sequelize, dataTypes){
         }
     };
 
-
     let config = {
         tableName: "usuarios",
         timestamps: true,
@@ -41,9 +40,7 @@ module.exports = function (sequelize, dataTypes){
         paranoid: true
     };
 
-
     let User = sequelize.define(alias, cols, config);
-
 
     User.associate = function(models) {
         User.hasMany(models.Product, {
@@ -57,7 +54,6 @@ module.exports = function (sequelize, dataTypes){
             timestamps: false
         });
     };
-
 
     return User;
 };
