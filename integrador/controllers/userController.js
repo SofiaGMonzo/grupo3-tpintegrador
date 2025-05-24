@@ -67,10 +67,11 @@ profile: function (req, res) {
   db.Product.findAll()
     .then(function(productos) {
       return res.render("profile", {
-        user: req.session.user,
+        listaUsuarios: req.session.user,
         listaProductos: productos,
         habilitado: true
-      });
+});
+
     })
     .catch(function(error) {
       return res.send(error);

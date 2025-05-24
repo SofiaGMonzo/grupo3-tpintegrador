@@ -31,6 +31,12 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use(function(req, res, next) {
+  res.locals.user = req.session.user || null;
+  res.locals.habilitado = !!req.session.user;
+  next();
+});
+
 // Rutas principales
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
