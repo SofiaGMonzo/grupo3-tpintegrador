@@ -1,25 +1,9 @@
-//const baseDatos = require("../db/baseDatos");
-//const db = require("../database/models");
-//const User = db.User
 
-//const userController = {
-  //login: function (req, res) {
-    //return res.render('login')
-    
-  //},
-  //profile: function (req, res) {
-    //return res.render('profile', {listaUsuarios: baseDatos.usuario, listaProductos: baseDatos.productos,
-      //habilitado: true
-   // })
- // },
- // register: function (req, res) {
- //   return res.render('register')
- // }
-//}
 const db = require("../database/models");
 const bcrypt = require("bcryptjs");
 
 const userControllers = {
+
   register: function (req, res) {
     if (req.session.user) return res.redirect("/user/profile");
     return res.render("register");
@@ -27,13 +11,11 @@ const userControllers = {
 
   processRegister: function (req, res) {
     const { email, username, password, birthdate, document, profile_picture } = req.body;
-
     db.User.findOne({ where: { email: email } })
       .then(function (existingUser) {
         if (existingUser) {
           return res.send("Ya existe un usuario con ese email.");
         }
-
         const nuevoUser = {
           email: email,
           username: username,
@@ -43,7 +25,6 @@ const userControllers = {
           foto: profile_picture,
           createdAt: new Date()
         };
-
         db.User.create(nuevoUser)
           .then(function (user) {
             req.session.user = {
@@ -61,39 +42,54 @@ const userControllers = {
     return res.render("login");
   },
 
-profile: function (req, res) {
-  if (!req.session.user) return res.redirect("/user/login");
+  processLogin: function (req, res) {
+    const { email, password, remember } = req.body;
+    db.User.findOne({ where: { email: email } })
+      .then(function (user) {
+        if (!user) {
+          return res.send("El email no está registrado.");
+        }
 
-  db.Product.findAll()
-    .then(function(productos) {
-      return res.render("profile", {
-        listaUsuarios: req.session.user,
-        listaProductos: productos,
-        habilitado: true
-});
+        if (!bcrypt.compareSync(password, user.contrasenia)) {
+          return res.send("La contraseña es incorrecta.");
+        }
+        req.session.user = {
+          id: user.id,
+          username: user.username,
+          email: user.email
+        };
+        if (remember) {
+          res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 60 * 24 * 7 }); // 1 semana
+        }
+        return res.redirect('/user/profile');
+      })
+      .catch(function (error) {
+        console.log(error);
+        return res.send("Error al intentar iniciar sesión.");
+      });
+  },
 
-    })
-    .catch(function(error) {
-      return res.send(error);
+  logout: function (req, res) {
+    res.clearCookie('userEmail'); 
+    req.session.destroy(() => {
+      res.redirect('/'); 
     });
-}
+  },
+
+  profile: function (req, res) {
+    if (!req.session.user) return res.redirect("/user/login");
+    db.Product.findAll()
+      .then(function(productos) {
+        return res.render("profile", {
+          listaUsuarios: req.session.user,
+          listaProductos: productos,
+          habilitado: true
+  });
+      })
+      .catch(function(error) {
+        return res.send(error);
+      });
+  }
 };
 
 module.exports = userControllers;
-
-/*ver como aplicar al trabajo
-let userController = {
-
-    User.findAll({
-        include: [
-            {Association:"product"}
-        ]
-    })
-    .then(function(resultados){
-        return 
-    })
-    .catch(function(error){
-        return 
-    })
-}
-*/
