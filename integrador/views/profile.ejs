@@ -1,70 +1,63 @@
 <%- include('./partials/head') %>
 <%- include('./partials/headerLogueado') %>
-   
+
 <section class="info-usuario container products-wrapper">
-    <div class="row">
-        <div class="img-container offset-3 col-2">
-            <img src="<%= listaUsuarios.imagenPerfil %>"  alt="foto de perfil" class="foto-perfil">
-        </div>
-        <div class="data-container col-6">
-            <div class="d-flex align-items-center ">
-                <h1 class="main-title"> <%= listaUsuarios.nombre %>
-                    <a href="/user/profile">
-                        <i class="fas fa-cog"></i>
-                    </a>
-                </h1>
-                <a class="btn mt-3 ml-4" href="/">SEGUIR</a>
-            </div>
-            <div>
-                <ul class="">
-                    <li><%= listaUsuarios.email %></li>
-                    <li>8 productos</li>
-                    <li>200 seguidores</li>
-                    <li>300 comentarios</li>
-                </ul>
-            </div>
-        </div>
+  <div class="row">
+    <div class="img-container offset-3 col-2">
+      <img src="<%= user.foto %>" alt="foto de perfil" class="foto-perfil">
     </div>
+    <div class="data-container col-6">
+      <div class="d-flex align-items-center ">
+        <h1 class="main-title">
+          <%= user.username %>
+          <a href="/user/profile">
+            <i class="fas fa-cog"></i>
+          </a>
+        </h1>
+        <a class="btn mt-3 ml-4" href="/">SEGUIR</a>
+      </div>
+      <div>
+        <ul class="">
+          <li><%= user.email %></li>
+          <li><%= productCount %> productos</li>
+          <li>200 seguidores</li>
+          <li>300 comentarios</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- /Datos del usuario -->
 
-        <!-- Show the "ultimos" products -->
+<!-- Mostrar productos -->
+<div class="container products-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="products-title">Mis productos</h2>
+    </div>
 
-        <div class="container products-wrapper">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="products-title">Mis productos</h2>
-                </div>
-                <% if (habilitado) { %>
-                    <% for( let i=0; i < listaProductos.length; i++ ) { %>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <section class="product-box">
-                                <a href="/products/id/<%= listaProductos[i].id %>">
-                                    <figure class="product-box_image">
-                                        <img src="<%= listaProductos[i].imagen %>" alt="">
-                                    </figure>
-                                    <article class="product-box_data">
-                                        <h2>
-                                            <%= listaProductos[i].nombre %>
-                                        </h2>
-                
-                                    </article>
-                                </a>
-                            </section>
-                        </div>
-                        <% } %>
-                            <% } else { %>
-                
-                                <i>Las remeras no estan habilitados por ahora</i>
-                
-                                <% } %>
-                
-                
-            </div>
-                        
+    <% if (products && products.length > 0) { %>
+      <% for (let i = 0; i < products.length; i++) { %>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <section class="product-box">
+            <a href="/products/id/<%= products[i].id %>">
+              <figure class="product-box_image">
+                <img src="<%= products[i].imagen %>" alt="">
+              </figure>
+              <article class="product-box_data">
+                <h2><%= products[i].nombre %></h2>
+              </article>
+            </a>
+          </section>
         </div>
-
+      <% } %>
+    <% } else { %>
+      <div class="col-12">
+        <i>No tenés productos cargados todavía.</i>
+      </div>
+    <% } %>
+  </div>
+</div>
 <!-- /Mis productos -->
-    <!-- /Footer -->
-    <%- include('./partials/footer') %>
-	<!-- /Footer -->
+
+<%- include('./partials/footer') %>

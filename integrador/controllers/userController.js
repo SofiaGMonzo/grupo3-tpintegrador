@@ -77,19 +77,27 @@ const userControllers = {
   },
 
   profile: function (req, res) {
-    if (!req.session.user) return res.redirect("/user/login");
-    db.Product.findAll()
-      .then(function(productos) {
-        return res.render("profile", {
-          listaUsuarios: req.session.user,
-          listaProductos: productos,
-          habilitado: true
+  if (!req.session.user) return res.redirect("/user/login");
+
+  db.User.findByPk(req.session.user.id, {
+    include: [{
+      model: db.Product,
+      as: "products"
+    }]
+  })
+  .then(function (user) {
+    return res.render("profile", {
+      user: user,
+      products: user.products,
+      productCount: user.products.length
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+    return res.send("Error al cargar el perfil del usuario.");
   });
-      })
-      .catch(function(error) {
-        return res.send(error);
-      });
-  }
+}
+
 };
 
 module.exports = userControllers;
