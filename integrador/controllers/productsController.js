@@ -1,142 +1,117 @@
-
 const db = require("../database/models");
-const Product = db.Product;
-const Comentario = db.Comentario;
+let op = db.Sequelize.Op;
 
 const productsController = {
-    productAdd: function (req, res) {
-        return res.render('product-add', {
-            listaUsuarios: db.usuario,
+    index: function (req, res) {
+        db.Product.findAll({
+            include: [{ association: "usuario" }]
+        })
+        .then(function (products) {
+            return res.render("products", { products });
+        })
+        .catch(function (error) {
+            return res.send(error);
+        });
+    },
+
+    show: function (req, res) {
+        let productId = req.params.id;
+        db.Product.findByPk(productId, {
+            include: [
+                { association: "usuario" },
+                {
+                    association: "comentarios",
+                    include: [{ association: "usuario" }]
+                }
+            ]
+        })
+        .then(function (product) {
+            if (!product) {
+                return res.status(404).send("Producto no encontrado");
+            }
+            return res.render("productDetail", { product });
+        })
+        .catch(function (error) {
+            return res.send(error);
+        });
+    },
+  searchResults: function (req, res) {
+    let busqueda = req.query.busqueda;
+
+    db.Product.findAll({
+        where: {
+            nombre: {
+                [op.like]: "%" + busqueda + "%"
+            }
+        },
+        include: [{ association: "usuario" }]
+    })
+    .then(function(resultados) {
+        let mensaje = null;
+        if (resultados.length === 0) {
+            mensaje = "No hay resultados para su criterio de búsqueda";
+        }
+
+        return res.render("search-results", {
+            listado: resultados,
             habilitado: true,
+            mensaje: mensaje,
+            searchTerm: busqueda
+        });
+    })
+    .catch(function(error) {
+        return res.send(error);
+    });
+},
+    productAdd: function (req, res) {
+        db.User.findAll()
+        .then(function (usuarios) {
+            return res.render("product-add", {
+                listaUsuarios: usuarios,
+                habilitado: true
+            });
+        })
+        .catch(function (error) {
+            return res.send(error);
         });
     },
 
     product: function (req, res) {
         let idBuscado = req.params.id;
-        let nuevoProducto = db.filtrarId(idBuscado);
+        let nuevoProducto = db.filtrarId(idBuscado); 
 
-        return res.render('product', {
+        return res.render("product", {
             info: nuevoProducto,
             comentarioInfo: nuevoProducto[0].comentarios
         });
     },
 
-    producto: function(req, res) {
-    let idBuscado = req.params.id;
+    producto: function (req, res) {
+        let idBuscado = req.params.id;
 
-    Product.findByPk(idBuscado, {
-        include: [
-            { association: "usuario" },
-            { association: "comentarios" }
-        ]
-    })
-    .then(function(nuevoProducto) {
-        if (!nuevoProducto) {
-            return res.status(404).send('Producto no encontrado');
-        }
-        return res.render('product', {
-            info: nuevoProducto, // es un objeto, NO un array
-            comentarioInfo: nuevoProducto.comentarios
+        db.Product.findByPk(idBuscado, {
+            include: [
+                { association: "usuario" },
+                {
+                    association: "comentarios",
+                    include: [{ association: "usuario" }]
+                }
+            ]
+        })
+        .then(function (nuevoProducto) {
+            if (!nuevoProducto) {
+                return res.status(404).send("Producto no encontrado");
+            }
+            return res.render("product", {
+                info: nuevoProducto,
+                comentarioInfo: nuevoProducto.comentarios
+            });
+        })
+        .catch(function (error) {
+            console.error(error);
+            return res.status(500).send("Error al obtener el producto.");
         });
-    })
-    .catch(function(error) {
-        console.error(error);
-        return res.status(500).send("Error al obtener el producto.");
-    });
-}
-
+    }
 };
 
 module.exports = productsController;
-
-
-
-
-// esto sigue tirando error 
-
-/* Esto era lo que estaba antes que habia hecho brisa soy emma 
-const baseDatos = require("../db/baseDatos");
-const db = require("../database/models");
-const Product = db.Product
-const Comentario = db.Comentario; // Importar el modelo de Comentarios
-
-const productsController = {
-    productAdd: function (req, res) {
-        return res.render ('product-add',  {listaUsuarios: baseDatos.usuario,
-            habilitado: true
-          })
-    },   
-    /*product: function (req, res) {
-        
-        let idBuscado = req.params.id;
-        let nuevoProducto = baseDatos.filtrarId(idBuscado);
-       
-
-        return res.render('product', 
-            {
-                info: nuevoProducto,
-                comentarioInfo: nuevoProducto[0].comentarios
-            }
-        )
-
-    },   
-    producto: function(req, res) {
-    let idBuscado = req.params.id;
-    console.log('idBuscado:', idBuscado); // Para debug
-
-     Product.findByPk(idBuscado, {
-         include: [
-            { association: "usuario" },
-            { association: "comentarios" }
-                     ]
-        })
-    .then(function(nuevoProducto) {
-          if (!nuevoProducto) {
-            return res.status(404).send('Producto no encontrado');
-          }
-         return res.render('product', {
-             info: nuevoProducto,
-             comentarioInfo: nuevoProducto.comentarios
-             });
-            })
-        .catch(function(error) {
-             console.error(error);
-             return res.status(500).send("Error al obtener el producto.");
-                });
-    },
-       comentariosRandom: function (req, res) {
-        const { producto_id, usuario_id, texto } = req.body;
-        Comentario.create({
-            producto_id,
-            usuario_id,
-            texto
-        })
-        .then(function() {
-            return res.redirect(`/product/${producto_id}`); 
-        })
-        .catch(function(error) {
-            console.error(error);
-            return res.status(500).send("Error al agregar el comentario.");
-        });
-    }
-}
-
-/*ver como aplicar al trabajo
-let productsController = {
-
-    Product.findAll({
-        include: [
-            {Association:"user"}
-        ]
-    })
-    .then(function(resultados){
-        return 
-    })
-    .catch(function(error){
-        return 
-    })
-}
-*/
-
-//hacer aca lo de comentarios, NO  un nuevo controller module.exports = productsController;
-
