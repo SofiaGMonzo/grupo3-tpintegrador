@@ -3,9 +3,12 @@
 <%- include('./partials/head') %>
 
 <body>
-	<!-- Header -->
-	<%- include('./partials/header') %>
-	<!-- /Header -->
+  <% if (user) { %>
+    <%- include('./partials/headerLogueado') %>
+  <% } else { %>
+    <%- include('./partials/header') %>
+  <% } %>
+   
 	<div class="container products-wrapper">
 		<div class="Login2">
 

@@ -21,7 +21,7 @@ const userControllers = {
           username: username,
           contrasenia: bcrypt.hashSync(password, 10),
           fechaNAC: birthdate,
-          dni:parseInt(document),
+          dni:document,
           foto: profile_picture,
           createdAt: new Date()
         };

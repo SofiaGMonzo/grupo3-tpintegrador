@@ -1,12 +1,15 @@
-<!-- Include Head -->
+
 <%- include('./partials/head') %>
 
 <body>
-  <!-- Header -->
-  <%- include('./partials/header') %>
-  <!-- /Header -->
 
-  <!-- Banner -->
+  <% if (user) { %>
+    <%- include('./partials/headerLogueado') %>
+  <% } else { %>
+    <%- include('./partials/header') %>
+  <% } %>
+   
+
   <div class="banner">
     <img src="" alt="">
   </div>

@@ -11,7 +11,6 @@ router.get('/profile', userController.profile);
 router.post('/login', userController.processLogin);
 router.get('/logout', userController.logout);
 
-//agrego
 router.get('/:id', userController.profile);
 router.get('/profile', userController.profile);
 
