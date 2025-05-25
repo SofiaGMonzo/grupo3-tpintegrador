@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const Product = db.Product;
 let op = db.Sequelize.Op;
 
 const productsController = {
@@ -14,27 +15,30 @@ const productsController = {
     });
   },
 
-  show: function (req, res) {
-    let productId = req.params.id;
-    db.Product.findByPk(productId, {
-      include: [
-        { association: "usuario" },
-        {
-          association: "comentarios",
-          include: [{ association: "usuario" }]
-        }
-      ]
-    })
-    .then(function (product) {
-      if (!product) {
-        return res.status(404).send("Producto no encontrado");
-      }
-      return res.render("productDetail", { product });
-    })
-    .catch(function (error) {
-      return res.send(error);
+  producto: function(req, res) {
+  let idBuscado = req.params.id;
+  Product.findByPk(idBuscado, {
+    include: [
+      { association: "usuario" },
+      { association: "comentarios",
+        include: ["usuario"]
+       }
+    ]
+  })
+  .then(function(nuevoProducto) {
+    if (!nuevoProducto) {
+      return res.status(404).send('Producto no encontrado');
+    }
+    return res.render('product', {
+      info: nuevoProducto,
+      comentarioInfo: nuevoProducto.comentarios
     });
-  },
+  })
+  .catch(function(error) {
+    console.error(error);
+    return res.status(500).send("Error al obtener el producto.");
+  });
+},
 
   searchResults: function (req, res) {
     let busqueda = req.query.busqueda;
