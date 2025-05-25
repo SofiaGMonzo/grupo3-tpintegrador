@@ -70,16 +70,19 @@ const productsController = {
   },
 
   productAdd: function (req, res) {
+    console.log("SESSION:", req.session);
     db.User.findAll()
       .then(function (usuarios) {
         return res.render("product-add", {
           listaUsuarios: usuarios,
-          habilitado: true
+          habilitado: true,
+          usuarioId: usuarioId 
         });
       })
       .catch(function (error) {
         return res.send(error);
       });
+      db.User.findAll()
   },
 
   storeProduct: function (req, res) {
