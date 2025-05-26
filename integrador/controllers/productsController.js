@@ -40,34 +40,32 @@ const productsController = {
   });
 },
 
-  searchResults: function (req, res) {
-    let busqueda = req.query.busqueda;
+ searchResults: function (req, res) {
+  let busqueda = req.query.busqueda;
 
-    db.Product.findAll({
-      where: {
-        nombre: {
-          [op.like]: "%" + busqueda + "%"
-        }
-      },
-      include: [{ association: "usuario" }]
-    })
-    .then(function(resultados) {
-      let mensaje = null;
-      if (resultados.length === 0) {
-        mensaje = "No hay resultados para su criterio de búsqueda";
-      }
+  db.Product.findAll({
+    where: {
+      nombre: busqueda 
+    },
+    include: [{ association: "usuario" }]
+  })
+  .then(function(resultados) {
+    let mensaje = null;
+    if (resultados.length === 0) {
+      mensaje = "No hay resultados para su criterio de búsqueda";
+    }
 
-      return res.render("search-results", {
-        listado: resultados,
-        habilitado: true,
-        mensaje: mensaje,
-        searchTerm: busqueda
-      });
-    })
-    .catch(function(error) {
-      return res.send(error);
+    return res.render("search-results", {
+      listado: resultados,
+      habilitado: true,
+      mensaje: mensaje,
+      searchTerm: busqueda
     });
-  },
+  })
+  .catch(function(error) {
+    return res.send(error);
+  });
+},
 
   productAdd: function (req, res) {
     console.log("SESSION:", req.session);
