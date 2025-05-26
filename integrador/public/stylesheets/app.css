@@ -623,9 +623,22 @@ a.Acolor {
 i {
     font-size: 15px;
 }
+label.url {
+    font-size: 13px;
+}
 a {
     text-decoration: none;
 }
+button.btnagregar {
+    font-size: 13px;
+    background-color: var(--light-blue);
+    color: #ffffff;
+    border-radius: 2px;
+    border: none;
+    margin: 25px;
+}
+
+
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {
