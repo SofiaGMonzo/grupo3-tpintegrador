@@ -1,6 +1,6 @@
 const db = require("../database/models");
 const Product = db.Product;
-let op = db.Sequelize.Op;
+let op = db.Sequelize.Op;  // no lo vimos asi me acabo de dar cuenta 
 
 const productsController = {
   index: function (req, res) {
@@ -84,22 +84,18 @@ const productsController = {
   },
 
   storeProduct: function (req, res) {
-    // Verifico que el usuario esté logueado
     if (!req.session.user) {
       return res.redirect('/user/login');
     }
+    let image = req.body.image;
+    let name = req.body.name;
+    let description = req.body.description; 
 
-    // Extraigo datos del form
-    var image = req.body.image;
-    var name = req.body.name;
-    var description = req.body.description;
-
-    // Creo el producto asociándolo al usuario logueado
     db.Product.create({
       imagen: image,
       nombre: name,
       descripcion: description,
-      usuarioId: req.session.user.id  // importante para la relación
+      usuarioId: req.session.user.id 
     })
     .then(function () {
       return res.redirect('/user/profile');
@@ -108,7 +104,28 @@ const productsController = {
       console.error(error);
       return res.send("Error al crear el producto.");
     });
-  }
+  }, 
+  crearComentario: function (req, res) {
+    if (req.session.user == undefined) {
+      return res.redirect("/user/login");
+    }
+    else {
+      db.Comentario.create({
+      producto_id: req.body.producto_id,
+      usuario_id: req.session.user.id,
+      texto: req.body.texto
+    })
+    .then(function () {
+      return res.redirect("/products/" + req.body.producto_id);
+    })
+    .catch(function (error) {
+      console.log(error);
+      return res.send("Error al crear el comentario.");
+    });
+  }}
+
+    
+
 };
 
 module.exports = productsController;
