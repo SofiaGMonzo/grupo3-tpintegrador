@@ -123,10 +123,28 @@ const productsController = {
       console.log(error);
       return res.send("Error al crear el comentario.");
     });
-  }}
-
+  }},
+  productcreate: function(req, res){
+    if (req.session.user == undefined) {
+      return res.redirect("/user/login");
+    }
+    else{
+      db.product.create({
+      nombre: req.body.nombre,
+      descripcion: req.body.descripcion,
+      imagen: req.body.imagen
+      })
     
-
+    .then(function() {
+      res.redirect("/products"); // o donde quieras ir después
+    })
+    .catch(function(error) {
+      console.error("Error al crear el producto:", error);
+      res.send("Error al crear el producto: " + error.message);
+    })
+  }
+}
+  
 };
 
 module.exports = productsController;
