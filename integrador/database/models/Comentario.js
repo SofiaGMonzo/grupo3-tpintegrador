@@ -1,31 +1,31 @@
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (sequelize, dataTypes) {
     let alias = "Comentario";
     let cols = {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: DataTypes.INTEGER.UNSIGNED
+            type: dataTypes.INTEGER.UNSIGNED
         },
         producto_id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
         usuario_id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
         texto: {
-            type: DataTypes.TEXT
+            type: dataTypes.TEXT
         },
         createdAt: {
-            type: DataTypes.DATE
+            type: dataTypes.DATE
         },
         updatedAt: {
-            type: DataTypes.DATE
+            type: dataTypes.DATE
         },
         deletedAt: {
-            type: DataTypes.DATE
+            type: dataTypes.DATE
         }
     };
 

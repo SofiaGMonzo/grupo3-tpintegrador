@@ -22,7 +22,7 @@ const mainController = {
     db.Product.findAll({
       where: {
         nombre: {
-          [db.Sequelize.Op.like]: "%" + busqueda + "%"
+          [db.Sequelize.Op.like]: "%" + busqueda + "%" // corregir es un where
         }
       },
       include: [{ association: "usuario" }]

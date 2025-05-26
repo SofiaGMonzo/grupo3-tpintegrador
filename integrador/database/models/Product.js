@@ -1,41 +1,38 @@
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (sequelize, dataTypes) {
     let alias = "Product";
     let cols = {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: DataTypes.INTEGER.UNSIGNED
+            type: dataTypes.INTEGER.UNSIGNED
         },
         usuario_id: {
-            type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: false
+            type: dataTypes.INTEGER.UNSIGNED,
+       
         },
         imagen: {
-            type: DataTypes.STRING,
-            allowNull: true
+            type: dataTypes.STRING,
+        
         },
         nombre: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: dataTypes.STRING,
+          
         },
         descripcion: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: dataTypes.TEXT,
+            
         },
         createdAt: {
-            type: DataTypes.DATE,
-            allowNull: true,
+            type: dataTypes.DATE,
             defaultValue: null
         },
         updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null
+            type: dataTypes.DATE,
         },
         deletedAt: {
-            type: DataTypes.DATE,
-            allowNull: true
+            type: dataTypes.DATE,
+    
         }
     };
 
@@ -46,11 +43,7 @@ module.exports = function (sequelize, DataTypes) {
         underscored: false,
         paranoid: true
     };
-
-
     let Product = sequelize.define(alias, cols, config);
-
-
     Product.associate = function(models) {
         Product.belongsTo(models.User, {
             as: "usuario",
@@ -61,7 +54,5 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: "producto_id"
         });
     };
-
-
     return Product;
 };

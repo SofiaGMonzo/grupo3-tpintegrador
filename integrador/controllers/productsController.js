@@ -68,13 +68,12 @@ const productsController = {
 },
 
   productAdd: function (req, res) {
-    console.log("SESSION:", req.session);
     db.User.findAll()
       .then(function (usuarios) {
         return res.render("product-add", {
           listaUsuarios: usuarios,
           habilitado: true,
-          usuarioId: req.session.user.id //corrijo en lugar de usuarioId 
+          usuarioId: req.session.user.id  
         });
       })
       .catch(function (error) {
@@ -82,29 +81,6 @@ const productsController = {
       });
       db.User.findAll()
   },
-
-  storeProduct: function (req, res) {
-    if (!req.session.user) {
-      return res.redirect('/user/login');
-    }
-    let image = req.body.image;
-    let name = req.body.name;
-    let description = req.body.description; 
-
-    db.Product.create({
-      imagen: image,
-      nombre: name,
-      descripcion: description,
-      usuarioId: req.session.user.id 
-    })
-    .then(function () {
-      return res.redirect('/user/profile');
-    })
-    .catch(function (error) {
-      console.error(error);
-      return res.send("Error al crear el producto.");
-    });
-  }, 
   crearComentario: function (req, res) {
     //return res.send(req.body)
     if (req.session.user == undefined) {
@@ -124,26 +100,23 @@ const productsController = {
       return res.send("Error al crear el comentario.");
     });
   }},
-  productcreate: function(req, res){
-    if (req.session.user == undefined) {
-      return res.redirect("/user/login");
-    }
-    else{
-      db.product.create({
+productcreate: function(req, res){
+    db.Product.create({
       nombre: req.body.nombre,
       descripcion: req.body.descripcion,
-      imagen: req.body.imagen
-      })
-    
+      imagen: req.body.imagen,
+      usuario_id: req.session.user.id  
+    })
     .then(function() {
-      res.redirect("/products"); // o donde quieras ir después
+      res.redirect("/");
     })
     .catch(function(error) {
       console.error("Error al crear el producto:", error);
       res.send("Error al crear el producto: " + error.message);
-    })
-  }
+    });
+  
 }
+
   
 };
 

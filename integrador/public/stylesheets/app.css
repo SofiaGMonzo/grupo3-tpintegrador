@@ -615,6 +615,17 @@ a.Acolor {
   align-content: center;
   justify-content: space-between;
 }
+
+.limuyespefico {
+  text-decoration: none;
+}
+
+i {
+    font-size: 15px;
+}
+a {
+    text-decoration: none;
+}
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {
