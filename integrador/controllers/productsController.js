@@ -106,6 +106,7 @@ const productsController = {
     });
   }, 
   crearComentario: function (req, res) {
+    //return res.send(req.body)
     if (req.session.user == undefined) {
       return res.redirect("/user/login");
     }
@@ -113,10 +114,10 @@ const productsController = {
       db.Comentario.create({
       producto_id: req.body.producto_id,
       usuario_id: req.session.user.id,
-      texto: req.body.texto
+      texto: req.body.comentario
     })
     .then(function () {
-      return res.redirect("/products/" + req.body.producto_id);
+      return res.redirect("/products/id/" + req.body.producto_id);
     })
     .catch(function (error) {
       console.log(error);

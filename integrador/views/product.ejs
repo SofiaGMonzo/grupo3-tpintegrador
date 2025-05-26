@@ -32,7 +32,8 @@
                      </div>
                      <% } %>
 				</section>
-                <form class="form" action="/" method="get">
+                <form class="form" action="/products/comentarios/crear" method="post">
+                    <input type="text" name="producto_id" value="<%= info.id %>" hidden>
                     <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
                     <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                 </form>
