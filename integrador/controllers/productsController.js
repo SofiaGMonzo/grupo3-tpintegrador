@@ -101,10 +101,11 @@ const productsController = {
     });
   }},
 productcreate: function(req, res){
+ 
     db.Product.create({
       nombre: req.body.nombre,
       descripcion: req.body.descripcion,
-      imagen: req.body.imagen,
+      imagen: req.body.image,
       usuario_id: req.session.user.id  
     })
     .then(function() {
