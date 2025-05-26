@@ -33,7 +33,6 @@ module.exports = function (sequelize, DataTypes) {
         tableName: "comentarios",
         timestamps: true,
         underscored: false,
-        paranoid: true
     };
 
     let Comentario = sequelize.define(alias, cols, config);
@@ -48,7 +47,6 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: "usuario_id"
         });
     };
-
     return Comentario;
 };
 
