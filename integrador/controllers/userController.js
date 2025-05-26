@@ -59,7 +59,7 @@ const userControllers = {
           email: user.email
         };
         if (remember) {
-          res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 60 * 24 * 7 }); // 1 semana
+          res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 30}); 
         }
         return res.redirect('/user/profile');
       })
