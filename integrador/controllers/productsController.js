@@ -76,7 +76,7 @@ const productsController = {
         return res.render("product-add", {
           listaUsuarios: usuarios,
           habilitado: true,
-          usuarioId: usuarioId 
+          usuarioId: req.session.user.id //corrijo en lugar de usuarioId 
         });
       })
       .catch(function (error) {
