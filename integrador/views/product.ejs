@@ -26,14 +26,15 @@
   					<div class="comentario">
    						 <p><strong>
       					  <a href="/user/profile/<%= comentarioInfo[i].usuario.id %>">
-         				 <%= comentarioInfo[i].usuario.nombre %> </a></strong> comentó:</p>
+                          <%= comentarioInfo[i].usuario.username %>
+                          </a>
+                                </strong> comentó:</p>
     							<p><%= comentarioInfo[i].texto %></p>
                                 <p><%= comentarioInfo[i].createdAt %></p>
                      </div>
                      <% } %>
 				</section>
-                <form class="form" action="/products/comentarios/crear" method="post">
-                    <input type="text" name="producto_id" value="<%= info.id %>" hidden>
+                <form class="form" action="/" method="get">
                     <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
                     <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                 </form>

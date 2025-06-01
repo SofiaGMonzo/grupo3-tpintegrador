@@ -1,4 +1,3 @@
-
 module.exports = function (sequelize, dataTypes) {
     let alias = "Product";
     let cols = {

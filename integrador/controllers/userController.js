@@ -67,16 +67,14 @@ const userControllers = {
         console.log(error);
         return res.send("Error al intentar iniciar sesión.");
       });
-  },
+  },logout: function (req, res) {
+  res.clearCookie('userEmail');
+  req.session.destroy(function () {
+    res.redirect('/');
+  });
+},
 
-  logout: function (req, res) {
-    res.clearCookie('userEmail'); 
-    req.session.destroy(() => {
-      res.redirect('/'); 
-    });
-  },
-
-  profile: function (req, res) {
+profile: function (req, res) {
   if (!req.session.user) return res.redirect("/user/login");
 
   db.User.findByPk(req.session.user.id, {
@@ -86,7 +84,7 @@ const userControllers = {
     }]
   })
   .then(function (user) {
-    return res.render("profile", {
+    res.render("profile", {
       user: user,
       products: user.products,
       productCount: user.products.length
@@ -94,7 +92,7 @@ const userControllers = {
   })
   .catch(function (error) {
     console.log(error);
-    return res.send("Error al cargar el perfil del usuario.");
+    res.send("Error al cargar el perfil del usuario.");
   });
 }
 
