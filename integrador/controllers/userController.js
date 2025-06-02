@@ -111,7 +111,7 @@ perfilUsuario: function (req, res) {
       return res.render("profile", {
         user: user,
         products: user.products,
-        productsCount: user.products.length
+        productCount: user.products.length
       });
     } else {
       res.send("No se encontró el usuario.");
