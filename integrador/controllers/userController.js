@@ -94,8 +94,29 @@ profile: function (req, res) {
     console.log(error);
     res.send("Error al cargar el perfil del usuario.");
   });
+},
+perfilUsuario: function (req, res) {
+  let username = req.params.username;
+
+  db.User.findAll({
+    where: { username: username },
+    include: [{
+      model: db.Product,
+      as: "products"
+    }]
+  }).then(function (usuarios) {  
+    if (usuarios.length > 0) {
+      let user = usuarios[0];
+
+      return res.render("profile", {
+        user: user,
+        products: user.products,
+        productsCount: user.products.length
+      });
+    } else {
+      res.send("No se encontró el usuario.");
+    }
+  });
 }
-
-};
-
+}
 module.exports = userControllers;
