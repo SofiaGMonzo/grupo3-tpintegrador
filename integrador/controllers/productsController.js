@@ -30,7 +30,8 @@ const productsController = {
       }
       return res.render('product', {
         info: nuevoProducto,
-        comentarioInfo: nuevoProducto.comentarios
+        comentarioInfo: nuevoProducto.comentarios,
+        user: req.session.user 
       });
     })
     .catch(function(error) {

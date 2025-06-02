@@ -637,8 +637,13 @@ button.btnagregar {
     border: none;
     margin: 25px;
 }
-
-
+p.IN {
+    font-size: 13px;
+    font-weight: 750;
+}
+a.link {
+    text-decoration-line: underline;
+}
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {

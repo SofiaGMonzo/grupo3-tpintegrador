@@ -34,14 +34,19 @@
                      </div>
                      <% } %>
 				</section>
-                <form class="form" action="/" method="get">
-                    <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
-                    <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-                </form>
-                <hr>
+               <% if (user) { %>
+         <form class="form" action="/products/comentarios/crear" method="POST">
+         <input type="hidden" name="producto_id" value="<%= info.id %>">
+         <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario" required>
+         <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+         </form>
+                <% } else { %>
+         <p class="IN">Para comentar, <a class= "link"  href="/user/login">iniciá sesión</a> o <a class="link" href="/user/register">registrate</a>.</p>
+                <% } %>
+            
+             </div>
             </div>
         </div>
     </div>
-</div>
 
 <%- include('./partials/footer') %>
