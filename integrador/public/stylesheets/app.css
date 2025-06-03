@@ -403,7 +403,7 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: #003889;
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -506,7 +506,7 @@ textarea.form-input {
   margin-bottom: 10px;
 }
 .botonregistrame { 
-  background-color: #000d3dcc;
+  background-color: #003889;
     color: white;
     border: 0px;
     padding: 15px;
@@ -631,11 +631,13 @@ a {
 }
 button.btnagregar {
     font-size: 13px;
-    background-color: var(--light-blue);
+    background-color: #003889;
     color: #ffffff;
     border-radius: 2px;
     border: none;
     margin: 25px;
+    padding: 9px;
+    border-radius: 9px;
 }
 p.IN {
     font-size: 13px;
