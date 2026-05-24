@@ -6,7 +6,7 @@ const mainController = {
       include: [{ association: "usuario" }]
     })
     .then(function(resultados) {
-      return res.render("index", {
+      return res.render("index", { 
         listado: resultados,
         habilitado: true
       });
